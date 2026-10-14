@@ -1,19 +1,23 @@
 {
-   "action": {
-      "default_popup": "popup.html"
-   },
-   "background": {
-      "service_worker": "js/background.js"
-   },
-   "icons": {
-      "128": "icons/broom128.png",
-      "16": "icons/broom16.png",
-      "48": "icons/broom48.png"
-   },
-   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqnPNTj4BsDcF6+kPk6C6FKI7IkkjbOr2VkPBSQBtasRymZvX+bA1fDlRR1udMXa+DLkFMPxvp97w4lJGwc0aSTYKTyTAMXJhHahL1IqTfKPbDIuxZN5A3qOclCY+T06RbkoJ1h/3bIWj4HqwwTsdkGGmRZmI7aanPj0TROLkCGkZ9UnZAGtEDq5B6KkcT0/ijBK/vDJgETzZ7aFwdNZ2pee5qLt92OqeNDSSzJqm6HzoX72Up6guNmL4AZ8+TMmtWReKTwQ5yFaqaV8IFWKS+/hAJgAwgPRyz3eb/6nYb0/dgMjdICD1MvMeg5x3YfB0AxgWI26oc20SAIhkcQFdQwIDAQAB",
-   "manifest_version": 3,
-   "name": "Tabs auto close",
-   "permissions": [ "storage", "tabs" ],
-   "update_url": "https://clients2.google.com/service/update2/crx",
-   "version": "2.0.5"
+  "manifest_version": 3,
+  "name": "Smart Tab Cleaner",
+  "version": "2.1.0",
+  "description": "Tự động đóng tab thông minh theo quy tắc hoặc block nhanh từ lịch sử duyệt web với Cloud Sync.",
+  "permissions": [
+    "storage",
+    "tabs",
+    "history"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Smart Tab Cleaner"
+  },
+  "background": {
+    "service_worker": "js/background.js"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
 }

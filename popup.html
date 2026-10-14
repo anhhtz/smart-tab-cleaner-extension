@@ -1,1 +1,133 @@
-<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1"><meta http-equiv="X-UA-Compatible" content="ie=edge"><title>Tabs autocloser</title><link href="/vendor/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous"/></head><body><div id="popup"></div><script defer="defer" src="js/popup.js"></script></body></html>
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Tab Cleaner</title>
+  <link rel="stylesheet" href="css/popup.css">
+</head>
+<body>
+  <header class="app-header">
+    <div class="header-top">
+      <div class="brand">
+        <img src="icons/icon48.png" alt="Logo">
+        <span>Smart Tab Cleaner</span>
+      </div>
+      <div class="sync-badge" id="syncStatus" title="Dữ liệu được tự động đồng bộ qua tài khoản Google">
+        ☁️ <span>Đã đồng bộ</span>
+      </div>
+    </div>
+
+    <!-- Navigation Tabs -->
+    <nav class="nav-tabs-custom">
+      <button class="nav-tab-btn active" data-tab="browseTab">
+        🕒 Lịch sử & Tab
+      </button>
+      <button class="nav-tab-btn" data-tab="rulesTab">
+        📋 Quy tắc (<span id="rulesCountBadge">0</span>)
+      </button>
+      <button class="nav-tab-btn" data-tab="settingsTab">
+        ⚙️ Cài đặt
+      </button>
+    </nav>
+  </header>
+
+  <!-- TAB 1: Browse History & Open Tabs -->
+  <section id="browseTab" class="tab-view">
+    <div class="toolbar">
+      <div class="search-input-wrapper">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="searchInput" class="search-input" placeholder="Tìm kiếm trang web hoặc tên miền...">
+      </div>
+      <div class="sub-filter-group">
+        <button class="sub-filter-btn active" id="btnFilterOpenTabs">⚡ Tab đang mở (<span id="openTabsCount">0</span>)</button>
+        <button class="sub-filter-btn" id="btnFilterHistory">🕒 Lịch sử duyệt web</button>
+      </div>
+    </div>
+
+    <div class="tab-content-container" id="siteListContainer">
+      <!-- Danh sách trang web sẽ render ở đây -->
+    </div>
+  </section>
+
+  <!-- TAB 2: Rules Management & Regex Tester -->
+  <section id="rulesTab" class="tab-view" style="display: none;">
+    <div class="tab-content-container">
+      <!-- Công cụ Test Regex trực tiếp cho người dùng -->
+      <div class="tester-box">
+        <div class="tester-title">
+          <span>🧪 Kiểm tra thử link (Test URL match)</span>
+        </div>
+        <input type="text" id="testerInput" class="tester-input" placeholder="Dán link (ví dụ link Zoom, Telegram...) để thử...">
+        <div id="testerResult" class="tester-result"></div>
+      </div>
+
+      <!-- Danh sách quy tắc đã lưu -->
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+        <span style="font-weight: 600; font-size: 12px; color: var(--text-muted);">DANH SÁCH QUY TẮC ĐANG BẬT</span>
+        <button id="btnManualAddRule" class="btn-sm-action">+ Thêm thủ công</button>
+      </div>
+
+      <div id="rulesListContainer">
+        <!-- Render danh sách rules -->
+      </div>
+    </div>
+  </section>
+
+  <!-- TAB 3: Settings & Backup -->
+  <section id="settingsTab" class="tab-view" style="display: none;">
+    <div class="tab-content-container">
+      <div class="settings-section">
+        <div class="settings-row">
+          <div>
+            <div class="settings-label">Thời gian chờ mặc định</div>
+            <div class="settings-desc">Thời gian đếm ngược trước khi tự động đóng tab (giây)</div>
+          </div>
+          <div>
+            <input type="number" id="settingDefaultTimeout" class="settings-input" min="0" max="3600" value="3">
+          </div>
+        </div>
+      </div>
+
+      <div class="settings-section">
+        <div class="settings-row">
+          <div>
+            <div class="settings-label">Đóng tab ngay khi Block</div>
+            <div class="settings-desc">Tự động đóng tab đang mở khi bạn vừa bấm Block nhanh</div>
+          </div>
+          <div>
+            <input type="checkbox" id="settingCloseOnBlock">
+          </div>
+        </div>
+      </div>
+
+      <div class="settings-section">
+        <div class="settings-row">
+          <div>
+            <div class="settings-label">Thống kê hoạt động</div>
+            <div class="settings-desc">Số lượng tab đã được tự động dọn dẹp</div>
+          </div>
+          <div style="font-size: 15px; font-weight: 700; color: var(--primary);" id="statClosedCount">
+            0
+          </div>
+        </div>
+      </div>
+
+      <div class="settings-section">
+        <div class="settings-label" style="margin-bottom: 8px;">Sao lưu & Đồng bộ thủ công</div>
+        <div style="display: flex; gap: 8px;">
+          <button id="btnExportRules" class="btn-sm-action" style="flex: 1;">📥 Xuất JSON (Export)</button>
+          <button id="btnImportRules" class="btn-sm-action" style="flex: 1;">📤 Nhập JSON (Import)</button>
+        </div>
+        <input type="file" id="importFileInput" accept=".json" style="display: none;">
+      </div>
+    </div>
+  </section>
+
+  <!-- Toast notification -->
+  <div id="toastNotice" class="toast-notice"></div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/popup.js"></script>
+</body>
+</html>
