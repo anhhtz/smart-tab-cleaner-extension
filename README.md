@@ -74,6 +74,8 @@ smart-tab-cleaner-extension/
 │   ├── icon16.png / icon16timer.png
 │   ├── icon48.png / icon48timer.png
 │   └── icon128.png / icon128timer.png
+├── assets/                       # Static media & resources
+│   └── qr/                       # Donation & sponsor QR codes (VietinBank & PayPal)
 ├── _locales/                     # Internationalization dictionaries
 │   ├── en/messages.json          # English locale (Default)
 │   └── vi/messages.json          # Vietnamese locale
@@ -130,3 +132,15 @@ Smart Tab Cleaner strictly requests only the minimal permissions necessary:
 ## 📄 License
 
 This project is licensed under the [MIT License](LICENSE) - feel free to customize, modify, and distribute as you see fit.
+
+---
+
+## 💖 Sponsor & Donation
+
+If you find **Smart Tab Cleaner** useful and it saves you time, please consider supporting its development! Every contribution helps keep the project active, maintained, and continuously improved. 🙏
+
+| 🇻🇳 VietinBank (VietQR / Napas 24/7) | 🌍 PayPal (International) |
+| :---: | :---: |
+| <img src="assets/qr/vietinbank.png" width="260" alt="VietinBank VietQR" /> | <img src="assets/qr/paypal.jpg" width="260" alt="PayPal QR Code" /> |
+<!-- | **STK:** `108882331695`<br>**Ngân hàng:** VietinBank<br>**Số tiền:** `99.000 VND` | **Tuan Anh Hoang**<br>Scan via PayPal app | -->
+
