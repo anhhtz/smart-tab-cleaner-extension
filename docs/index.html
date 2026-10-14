@@ -8,35 +8,73 @@
   <link rel="icon" type="image/png" href="./icons/icon48.png">
   <link rel="stylesheet" href="./css/shadcn.css">
 </head>
-<body>
+<body data-lang="en">
 
   <!-- Top Navigation Bar -->
   <header class="site-header">
     <div class="container nav-wrapper">
       <a href="./index.html" class="brand-link">
         <img src="./icons/icon48.png" alt="Smart Tab Cleaner Logo" class="brand-logo">
-        <span>Smart Tab Cleaner</span>
-        <span class="badge badge-outline">v2.1.0</span>
+        <span class="brand-title">Smart Tab Cleaner</span>
+        <span class="brand-badge">v2.1.0</span>
       </a>
 
-      <nav>
+      <nav class="nav-center">
         <ul class="nav-links">
-          <li><a href="#features" class="nav-link">Features</a></li>
-          <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
-          <li><a href="#preview" class="nav-link">Interactive Demo</a></li>
-          <li><a href="#faq" class="nav-link">FAQ</a></li>
-          <li><a href="./privacy.html" class="nav-link">Privacy Policy</a></li>
-          <li><a href="./terms.html" class="nav-link">Terms</a></li>
+          <li>
+            <a href="#features" class="nav-link">
+              <span class="lang-en">Features</span>
+              <span class="lang-vi">Tính năng</span>
+            </a>
+          </li>
+          <li>
+            <a href="#how-it-works" class="nav-link">
+              <span class="lang-en">How It Works</span>
+              <span class="lang-vi">Quy trình</span>
+            </a>
+          </li>
+          <li>
+            <a href="#preview" class="nav-link">
+              <span class="lang-en">Live Demo</span>
+              <span class="lang-vi">Dùng thử</span>
+            </a>
+          </li>
+          <li>
+            <a href="#faq" class="nav-link">
+              <span class="lang-en">FAQ</span>
+              <span class="lang-vi">Hỏi đáp</span>
+            </a>
+          </li>
+          <li>
+            <a href="./privacy.html" class="nav-link">
+              <span class="lang-en">Privacy</span>
+              <span class="lang-vi">Bảo mật</span>
+            </a>
+          </li>
+          <li>
+            <a href="./terms.html" class="nav-link">
+              <span class="lang-en">Terms</span>
+              <span class="lang-vi">Điều khoản</span>
+            </a>
+          </li>
         </ul>
       </nav>
 
       <div class="nav-actions">
-        <a href="https://github.com/anhhtz/smart-tab-cleaner-extension" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-          GitHub
+        <!-- Language Switcher Pill -->
+        <div class="lang-switch" title="Change Language / Đổi ngôn ngữ">
+          <button type="button" class="lang-switch-btn active" data-lang="en">EN</button>
+          <button type="button" class="lang-switch-btn" data-lang="vi">VI</button>
+        </div>
+
+        <a href="https://github.com/anhhtz/smart-tab-cleaner-extension" target="_blank" rel="noopener noreferrer" class="btn btn-outline header-btn" title="GitHub Repository">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+          <span>GitHub</span>
         </a>
-        <a href="https://github.com/anhhtz/smart-tab-cleaner-extension/releases" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
-          Add to Chrome
+        <a href="https://github.com/anhhtz/smart-tab-cleaner-extension/releases" target="_blank" rel="noopener noreferrer" class="btn btn-primary header-btn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="4"></circle><line x1="21.17" y1="8" x2="12" y2="8"></line><line x1="3.95" y1="6.06" x2="8.54" y2="14"></line><line x1="10.88" y1="21.94" x2="15.46" y2="14"></line></svg>
+          <span class="lang-en">Add to Chrome</span>
+          <span class="lang-vi">Cài vào Chrome</span>
         </a>
       </div>
     </div>
@@ -47,38 +85,52 @@
     <div class="container">
       <div class="hero-pill">
         <span class="badge badge-brand">
-          <span style="font-size: 10px;">●</span> 100% Client-Side • Google Cloud Sync • Zero Tracking
+          <span class="lang-en">● 100% Client-Side • Google Cloud Sync • Zero Tracking</span>
+          <span class="lang-vi">● 100% Cục bộ • Đồng bộ Google Cloud • Không theo dõi</span>
         </span>
       </div>
 
-      <h1 class="hero-title">Keep your browser clean.<br>Automatically close clutter tabs.</h1>
+      <h1 class="hero-title">
+        <span class="lang-en">Keep your browser clean.<br>Automatically close clutter tabs.</span>
+        <span class="lang-vi">Giữ trình duyệt luôn gọn gàng.<br>Tự động dọn dẹp các tab thừa.</span>
+      </h1>
       
       <p class="hero-lead">
-        Automate the cleanup of annoying pop-up tabs, spam redirects, and disposable launcher links (Zoom, Teams, Telegram) using smart regex rules and customizable countdown delays.
+        <span class="lang-en">
+          Automate the cleanup of annoying pop-up tabs, spam redirects, and disposable launcher links (Zoom, Teams, Telegram) using smart regex rules and customizable countdown delays.
+        </span>
+        <span class="lang-vi">
+          Tự động phát hiện và đóng các tab quảng cáo tự nhảy, liên kết chuyển hướng spam và các tab launcher trung gian (Zoom, Teams, Telegram) bằng biểu thức regex thông minh và bộ đếm ngược linh hoạt.
+        </span>
       </p>
 
       <div class="hero-cta">
         <a href="https://github.com/anhhtz/smart-tab-cleaner-extension/releases" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="4"></circle><line x1="21.17" y1="8" x2="12" y2="8"></line><line x1="3.95" y1="6.06" x2="8.54" y2="14"></line><line x1="10.88" y1="21.94" x2="15.46" y2="14"></line></svg>
-          Add to Chrome — Free
+          <span class="lang-en">Add to Chrome — Free</span>
+          <span class="lang-vi">Thêm vào Chrome — Miễn phí</span>
         </a>
         <a href="#preview" class="btn btn-outline btn-lg">
-          Try Live Demo
+          <span class="lang-en">Try Live Demo</span>
+          <span class="lang-vi">Dùng thử Demo</span>
         </a>
       </div>
 
       <div class="meta-trust">
         <div class="meta-trust-item">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>
-          Manifest V3 Ready
+          <span class="lang-en">Manifest V3 Ready</span>
+          <span class="lang-vi">Chuẩn Manifest V3</span>
         </div>
         <div class="meta-trust-item">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>
-          Encrypted Chrome Sync
+          <span class="lang-en">Encrypted Chrome Sync</span>
+          <span class="lang-vi">Đồng bộ mã hóa Chrome</span>
         </div>
         <div class="meta-trust-item">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>
-          No Ads & No Analytics
+          <span class="lang-en">No Ads & No Analytics</span>
+          <span class="lang-vi">Không quảng cáo & Không Analytics</span>
         </div>
       </div>
     </div>
@@ -110,54 +162,90 @@
                   <span>Smart Tab Cleaner</span>
                 </div>
                 <div class="ext-sync-pill">
-                  <span>☁️</span> Synced
+                  <span>☁️</span>
+                  <span class="lang-en">Synced</span>
+                  <span class="lang-vi">Đã đồng bộ</span>
                 </div>
               </div>
 
               <!-- Extension Nav Tabs -->
               <div class="ext-tabs-nav">
-                <button class="ext-tab-btn active" data-tab="paneHistory">🕒 History & Tabs</button>
-                <button class="ext-tab-btn" data-tab="paneRules">📋 Rules (4)</button>
-                <button class="ext-tab-btn" data-tab="paneSettings">⚙️ Settings</button>
+                <button class="ext-tab-btn active" data-tab="paneHistory">
+                  <span class="lang-en">🕒 History & Tabs</span>
+                  <span class="lang-vi">🕒 Lịch sử & Tab</span>
+                </button>
+                <button class="ext-tab-btn" data-tab="paneRules">
+                  <span class="lang-en">📋 Rules (4)</span>
+                  <span class="lang-vi">📋 Quy tắc (4)</span>
+                </button>
+                <button class="ext-tab-btn" data-tab="paneSettings">
+                  <span class="lang-en">⚙️ Settings</span>
+                  <span class="lang-vi">⚙️ Cài đặt</span>
+                </button>
               </div>
             </div>
 
             <!-- TAB 1: History & Open Tabs Pane -->
             <div class="ext-content ext-tab-pane" id="paneHistory">
               <div style="margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center;">
-                <span style="font-size: 0.75rem; color: #71717a; font-weight: 500;">⚡ Open Tabs & History</span>
-                <span class="badge badge-outline" style="font-size: 0.6875rem;">Interactive Demo</span>
+                <span style="font-size: 0.75rem; color: #71717a; font-weight: 500;">
+                  <span class="lang-en">⚡ Open Tabs & History</span>
+                  <span class="lang-vi">⚡ Tab đang mở & Lịch sử</span>
+                </span>
+                <span class="badge badge-outline" style="font-size: 0.6875rem;">
+                  <span class="lang-en">Interactive Demo</span>
+                  <span class="lang-vi">Bản tương tác thử</span>
+                </span>
               </div>
 
               <!-- List item 1 -->
               <div class="ext-list-item">
                 <div class="ext-item-info">
-                  <div class="ext-item-title">Pop-up Casino Ad Redirect</div>
+                  <div class="ext-item-title">
+                    <span class="lang-en">Pop-up Casino Ad Redirect</span>
+                    <span class="lang-vi">Trang chuyển hướng Ads Casino</span>
+                  </div>
                   <div class="ext-item-url">https://livecasino-tracker.net/ad?click=1</div>
                 </div>
-                <button class="demo-block-btn ext-btn-block">⚡ Block</button>
+                <button class="demo-block-btn ext-btn-block">
+                  <span class="lang-en">⚡ Block</span>
+                  <span class="lang-vi">⚡ Chặn</span>
+                </button>
               </div>
 
               <!-- List item 2 -->
               <div class="ext-list-item">
                 <div class="ext-item-info">
-                  <div class="ext-item-title">Zoom Meeting Launch Page</div>
+                  <div class="ext-item-title">
+                    <span class="lang-en">Zoom Meeting Launch Page</span>
+                    <span class="lang-vi">Trang mở cuộc họp Zoom</span>
+                  </div>
                   <div class="ext-item-url">https://zoom.us/j/98421034821</div>
                 </div>
-                <button class="demo-block-btn ext-btn-blocked">✓ Blocked</button>
+                <button class="demo-block-btn ext-btn-blocked">
+                  <span class="lang-en">✓ Blocked</span>
+                  <span class="lang-vi">✓ Đã chặn</span>
+                </button>
               </div>
 
               <!-- List item 3 -->
               <div class="ext-list-item">
                 <div class="ext-item-info">
-                  <div class="ext-item-title">Telegram Channel Join Link</div>
+                  <div class="ext-item-title">
+                    <span class="lang-en">Telegram Channel Join Link</span>
+                    <span class="lang-vi">Link tham gia nhóm Telegram</span>
+                  </div>
                   <div class="ext-item-url">https://t.me/dev_updates_channel</div>
                 </div>
-                <button class="demo-block-btn ext-btn-block">⚡ Block</button>
+                <button class="demo-block-btn ext-btn-block">
+                  <span class="lang-en">⚡ Block</span>
+                  <span class="lang-vi">⚡ Chặn</span>
+                </button>
               </div>
 
               <div style="font-size: 0.6875rem; color: #a1a1aa; text-align: center; margin-top: 10px;">
-                💡 Click "Block" to toggle rules instantly!
+                <span class="lang-en">💡 Click "Block" to toggle rules instantly!</span>
+                <span class="lang-vi">💡 Bấm nút "Chặn" để bật/tắt quy tắc tức thì!</span>
               </div>
             </div>
 
@@ -165,21 +253,33 @@
             <div class="ext-content ext-tab-pane" id="paneRules" style="display: none;">
               <!-- Tester Box -->
               <div style="background: #fafafa; border: 1px solid var(--border); border-radius: 8px; padding: 10px; margin-bottom: 12px;">
-                <div style="font-size: 0.75rem; font-weight: 600; margin-bottom: 6px;">🧪 Test URL Matcher</div>
+                <div style="font-size: 0.75rem; font-weight: 600; margin-bottom: 6px;">
+                  <span class="lang-en">🧪 Test URL Matcher</span>
+                  <span class="lang-vi">🧪 Kiểm tra so khớp URL</span>
+                </div>
                 <input type="text" id="demoTesterInput" placeholder="Paste URL to test (e.g. zoom.us/j/...)" value="https://zoom.us/j/912837482" style="width: 100%; font-size: 0.75rem; padding: 6px 8px; border: 1px solid var(--border); border-radius: 6px; outline: none; margin-bottom: 6px;">
                 
                 <div style="display: flex; gap: 4px; flex-wrap: wrap; margin-bottom: 6px;">
                   <button class="demo-url-chip badge badge-outline" data-url="https://zoom.us/j/912837482" style="cursor: pointer;">Zoom</button>
                   <button class="demo-url-chip badge badge-outline" data-url="https://t.me/samplegroup" style="cursor: pointer;">Telegram</button>
-                  <button class="demo-url-chip badge badge-outline" data-url="https://livecasino.example.com" style="cursor: pointer;">Ad Match</button>
-                  <button class="demo-url-chip badge badge-outline" data-url="https://github.com/explore" style="cursor: pointer;">Safe Site</button>
+                  <button class="demo-url-chip badge badge-outline" data-url="https://livecasino.example.com" style="cursor: pointer;">
+                    <span class="lang-en">Ad Match</span>
+                    <span class="lang-vi">Quảng cáo</span>
+                  </button>
+                  <button class="demo-url-chip badge badge-outline" data-url="https://github.com/explore" style="cursor: pointer;">
+                    <span class="lang-en">Safe Site</span>
+                    <span class="lang-vi">Web an toàn</span>
+                  </button>
                 </div>
 
                 <div id="demoTesterResult"></div>
               </div>
 
               <!-- Rules preview list -->
-              <div style="font-size: 0.6875rem; font-weight: 600; color: #71717a; margin-bottom: 6px;">ACTIVE AUTO-CLOSE RULES</div>
+              <div style="font-size: 0.6875rem; font-weight: 600; color: #71717a; margin-bottom: 6px;">
+                <span class="lang-en">ACTIVE AUTO-CLOSE RULES</span>
+                <span class="lang-vi">DANH SÁCH QUY TẮC ĐANG BẬT</span>
+              </div>
               
               <div class="ext-list-item" style="padding: 6px 10px;">
                 <div class="ext-item-info">
@@ -191,7 +291,10 @@
 
               <div class="ext-list-item" style="padding: 6px 10px;">
                 <div class="ext-item-info">
-                  <div class="ext-item-title" style="font-size: 0.75rem;">Telegram Join Link</div>
+                  <div class="ext-item-title" style="font-size: 0.75rem;">
+                    <span class="lang-en">Telegram Join Link</span>
+                    <span class="lang-vi">Link nhóm Telegram</span>
+                  </div>
                   <div class="ext-item-url" style="font-size: 0.6875rem; font-family: monospace;">t\.me/.*</div>
                 </div>
                 <span class="badge badge-brand" style="font-size: 0.6875rem;">500ms</span>
@@ -201,17 +304,35 @@
             <!-- TAB 3: Settings Pane -->
             <div class="ext-content ext-tab-pane" id="paneSettings" style="display: none;">
               <div style="border-bottom: 1px solid var(--border); padding-bottom: 10px; margin-bottom: 10px;">
-                <div style="font-size: 0.75rem; font-weight: 600; margin-bottom: 2px;">Default Countdown Delay</div>
-                <div style="font-size: 0.6875rem; color: #71717a; margin-bottom: 6px;">Delay in milliseconds before closing matching tabs.</div>
+                <div style="font-size: 0.75rem; font-weight: 600; margin-bottom: 2px;">
+                  <span class="lang-en">Default Countdown Delay</span>
+                  <span class="lang-vi">Thời gian đếm ngược mặc định</span>
+                </div>
+                <div style="font-size: 0.6875rem; color: #71717a; margin-bottom: 6px;">
+                  <span class="lang-en">Delay in milliseconds before closing matching tabs.</span>
+                  <span class="lang-vi">Độ trễ mili-giây trước khi tự động đóng tab khớp quy tắc.</span>
+                </div>
                 <div style="display: flex; align-items: center; gap: 8px;">
-                  <span class="badge badge-brand">500 ms (Default)</span>
-                  <span class="badge badge-outline">0 ms (Instant)</span>
+                  <span class="badge badge-brand">
+                    <span class="lang-en">500 ms (Default)</span>
+                    <span class="lang-vi">500 ms (Mặc định)</span>
+                  </span>
+                  <span class="badge badge-outline">
+                    <span class="lang-en">0 ms (Instant)</span>
+                    <span class="lang-vi">0 ms (Tức thì)</span>
+                  </span>
                 </div>
               </div>
 
               <div>
-                <div style="font-size: 0.75rem; font-weight: 600; margin-bottom: 2px;">Backup & Cloud Sync</div>
-                <div style="font-size: 0.6875rem; color: #71717a; margin-bottom: 8px;">All rules automatically sync across your Chrome devices via your Google Account.</div>
+                <div style="font-size: 0.75rem; font-weight: 600; margin-bottom: 2px;">
+                  <span class="lang-en">Backup & Cloud Sync</span>
+                  <span class="lang-vi">Sao lưu & Đồng bộ đám mây</span>
+                </div>
+                <div style="font-size: 0.6875rem; color: #71717a; margin-bottom: 8px;">
+                  <span class="lang-en">All rules automatically sync across your Chrome devices via your Google Account.</span>
+                  <span class="lang-vi">Mọi quy tắc tự động đồng bộ trên các máy tính đăng nhập tài khoản Google.</span>
+                </div>
                 <div style="display: flex; gap: 8px;">
                   <span class="btn btn-outline btn-sm" style="font-size: 0.6875rem; padding: 4px 8px;">📥 Export JSON</span>
                   <span class="btn btn-outline btn-sm" style="font-size: 0.6875rem; padding: 4px 8px;">📤 Import JSON</span>
@@ -229,36 +350,69 @@
   <section class="section" id="how-it-works" style="background-color: #fafafa; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
     <div class="container">
       <div class="section-header">
-        <div class="section-subtitle">Workflow</div>
-        <h2 class="section-title">How Smart Tab Cleaner Works</h2>
-        <p class="section-lead">A seamless, non-intrusive background service worker that keeps your browser decluttered without manual effort.</p>
+        <div class="section-subtitle">
+          <span class="lang-en">Workflow</span>
+          <span class="lang-vi">Quy trình</span>
+        </div>
+        <h2 class="section-title">
+          <span class="lang-en">How Smart Tab Cleaner Works</span>
+          <span class="lang-vi">Cách Smart Tab Cleaner hoạt động</span>
+        </h2>
+        <p class="section-lead">
+          <span class="lang-en">A seamless, non-intrusive background service worker that keeps your browser decluttered without manual effort.</span>
+          <span class="lang-vi">Một Service Worker chạy ngầm siêu nhẹ, giữ cho trình duyệt của bạn luôn ngăn nắp mà không cần thao tác thủ công.</span>
+        </p>
       </div>
 
       <div class="steps-container">
         <!-- Step 1 -->
         <div class="step-card">
           <div class="step-number">1</div>
-          <h3 class="card-title">Define Rules or Click Block</h3>
+          <h3 class="card-title">
+            <span class="lang-en">Define Rules or Click Block</span>
+            <span class="lang-vi">Tạo quy tắc hoặc bấm Chặn</span>
+          </h3>
           <p class="card-description">
-            Open the extension popup to view recently visited sites or open tabs. Simply click <strong>Block</strong> or type custom Regular Expressions with your desired close delay.
+            <span class="lang-en">
+              Open the extension popup to view recently visited sites or open tabs. Simply click <strong>Block</strong> or type custom Regular Expressions with your desired close delay.
+            </span>
+            <span class="lang-vi">
+              Mở popup tiện ích để xem các trang vừa truy cập hoặc tab đang mở. Chỉ cần nhấn <strong>Chặn (Block)</strong> hoặc nhập biểu thức Regex cùng thời gian đếm ngược mong muốn.
+            </span>
           </p>
         </div>
 
         <!-- Step 2 -->
         <div class="step-card">
           <div class="step-number">2</div>
-          <h3 class="card-title">Smart URL Match & Countdown</h3>
+          <h3 class="card-title">
+            <span class="lang-en">Smart URL Match & Countdown</span>
+            <span class="lang-vi">So khớp URL & Đếm ngược</span>
+          </h3>
           <p class="card-description">
-            Whenever a tab finishes loading, the background worker evaluates the URL. If matched, the icon turns into a countdown timer badge while waiting for the timer to elapse.
+            <span class="lang-en">
+              Whenever a tab finishes loading, the background worker evaluates the URL. If matched, the icon turns into a countdown timer badge while waiting for the timer to elapse.
+            </span>
+            <span class="lang-vi">
+              Mỗi khi tab tải xong, service worker nền kiểm tra URL. Nếu khớp quy tắc, icon sẽ đổi sang đồng hồ đếm ngược chờ đến khi hết số mili-giây quy định.
+            </span>
           </p>
         </div>
 
         <!-- Step 3 -->
         <div class="step-card">
           <div class="step-number">3</div>
-          <h3 class="card-title">Clean Tab & Multi-Device Sync</h3>
+          <h3 class="card-title">
+            <span class="lang-en">Clean Tab & Multi-Device Sync</span>
+            <span class="lang-vi">Đóng tab & Đồng bộ thiết bị</span>
+          </h3>
           <p class="card-description">
-            The target tab closes automatically. Your rules and settings immediately sync across all your laptops and desktops via Google's encrypted <code>chrome.storage.sync</code>.
+            <span class="lang-en">
+              The target tab closes automatically. Your rules and settings immediately sync across all your laptops and desktops via Google's encrypted <code>chrome.storage.sync</code>.
+            </span>
+            <span class="lang-vi">
+              Tab mục tiêu tự động được đóng gọn gàng. Quy tắc và cài đặt của bạn được đồng bộ tức thì sang tất cả máy tính thông qua <code>chrome.storage.sync</code> của Google.
+            </span>
           </p>
         </div>
       </div>
@@ -269,63 +423,120 @@
   <section class="section" id="features">
     <div class="container">
       <div class="section-header">
-        <div class="section-subtitle">Core Capabilities</div>
-        <h2 class="section-title">Engineered for Productivity and Peace of Mind</h2>
-        <p class="section-lead">Minimalist UI, maximum speed, and uncompromising respect for your privacy.</p>
+        <div class="section-subtitle">
+          <span class="lang-en">Core Capabilities</span>
+          <span class="lang-vi">Tính năng cốt lõi</span>
+        </div>
+        <h2 class="section-title">
+          <span class="lang-en">Engineered for Productivity and Peace of Mind</span>
+          <span class="lang-vi">Thiết kế tối ưu cho hiệu suất và sự an tâm</span>
+        </h2>
+        <p class="section-lead">
+          <span class="lang-en">Minimalist UI, maximum speed, and uncompromising respect for your privacy.</span>
+          <span class="lang-vi">Giao diện tối giản, tốc độ tối đa và tôn trọng quyền riêng tư của bạn.</span>
+        </p>
       </div>
 
       <div class="features-grid">
         <!-- Feature 1 -->
         <div class="card">
           <div class="feature-icon-wrapper">⚡</div>
-          <h3 class="card-title">Fast Auto-Close Delay</h3>
+          <h3 class="card-title">
+            <span class="lang-en">Fast Auto-Close Delay</span>
+            <span class="lang-vi">Độ trễ đóng tab linh hoạt</span>
+          </h3>
           <p class="card-description">
-            Configure countdown delays down to 0ms for instant pop-up kills, or 500ms to allow external app launch protocols (e.g., desktop Zoom or Teams client) to trigger first.
+            <span class="lang-en">
+              Configure countdown delays down to 0ms for instant pop-up kills, or 500ms to allow external app launch protocols (e.g., desktop Zoom or Teams client) to trigger first.
+            </span>
+            <span class="lang-vi">
+              Tùy chỉnh thời gian đếm ngược về 0ms để dập tắt pop-up tức thì, hoặc 500ms để kịp kích hoạt ứng dụng trên máy (Zoom, Microsoft Teams, Telegram).
+            </span>
           </p>
         </div>
 
         <!-- Feature 2 -->
         <div class="card">
           <div class="feature-icon-wrapper">🛡️</div>
-          <h3 class="card-title">1-Click Quick Block</h3>
+          <h3 class="card-title">
+            <span class="lang-en">1-Click Quick Block</span>
+            <span class="lang-vi">Chặn nhanh chỉ với 1 cú click</span>
+          </h3>
           <p class="card-description">
-            No need to manually type regex syntax. Browse recent history or active tabs right in the popup and click "Block" to automatically extract clean domain rules.
+            <span class="lang-en">
+              No need to manually type regex syntax. Browse recent history or active tabs right in the popup and click "Block" to automatically extract clean domain rules.
+            </span>
+            <span class="lang-vi">
+              Không cần gõ cú pháp regex phức tạp. Duyệt lịch sử gần đây hoặc các tab đang mở ngay trong popup và nhấn "Block" để tự động sinh quy tắc chặn chuẩn xác.
+            </span>
           </p>
         </div>
 
         <!-- Feature 3 -->
         <div class="card">
           <div class="feature-icon-wrapper">☁️</div>
-          <h3 class="card-title">Google Cloud Sync</h3>
+          <h3 class="card-title">
+            <span class="lang-en">Google Cloud Sync</span>
+            <span class="lang-vi">Đồng bộ Google Cloud</span>
+          </h3>
           <p class="card-description">
-            Full support for Chrome's native <code>chrome.storage.sync</code>. Configure your rules once at work and have them seamlessly apply to your personal computer.
+            <span class="lang-en">
+              Full support for Chrome's native <code>chrome.storage.sync</code>. Configure your rules once at work and have them seamlessly apply to your personal computer.
+            </span>
+            <span class="lang-vi">
+              Hỗ trợ đầy đủ chuẩn <code>chrome.storage.sync</code> của Google. Cấu hình quy tắc một lần trên máy công ty và tự động đồng bộ ngay sang máy tính cá nhân.
+            </span>
           </p>
         </div>
 
         <!-- Feature 4 -->
         <div class="card">
           <div class="feature-icon-wrapper">🎯</div>
-          <h3 class="card-title">Regex Matcher & Tester</h3>
+          <h3 class="card-title">
+            <span class="lang-en">Regex Matcher & Tester</span>
+            <span class="lang-vi">Trình kiểm tra so khớp Regex</span>
+          </h3>
           <p class="card-description">
-            Includes a built-in interactive URL pattern tester. Verify that your regex pattern properly triggers or avoids false positives before committing changes.
+            <span class="lang-en">
+              Includes a built-in interactive URL pattern tester. Verify that your regex pattern properly triggers or avoids false positives before committing changes.
+            </span>
+            <span class="lang-vi">
+              Tích hợp sẵn công cụ kiểm tra URL tương tác trực tiếp. Thử nghiệm ngay mẫu regex trước khi lưu để đảm bảo khớp chuẩn và không bị đóng nhầm tab quan trọng.
+            </span>
           </p>
         </div>
 
         <!-- Feature 5 -->
         <div class="card">
           <div class="feature-icon-wrapper">🔒</div>
-          <h3 class="card-title">Zero Tracking & Local Only</h3>
+          <h3 class="card-title">
+            <span class="lang-en">Zero Tracking & Local Only</span>
+            <span class="lang-vi">Bảo mật tuyệt đối, 100% Cục bộ</span>
+          </h3>
           <p class="card-description">
-            We never transmit, log, or monetize your browsing history. Everything executes locally in memory on your computer, with zero third-party telemetry.
+            <span class="lang-en">
+              We never transmit, log, or monetize your browsing history. Everything executes locally in memory on your computer, with zero third-party telemetry.
+            </span>
+            <span class="lang-vi">
+              Không thu thập, không lưu log hay bán lịch sử duyệt web. Toàn bộ quá trình so khớp diễn ra hoàn toàn trong bộ nhớ máy tính mà không có bất kỳ bên thứ ba nào.
+            </span>
           </p>
         </div>
 
         <!-- Feature 6 -->
         <div class="card">
           <div class="feature-icon-wrapper">📥</div>
-          <h3 class="card-title">JSON Export & Import</h3>
+          <h3 class="card-title">
+            <span class="lang-en">JSON Export & Import</span>
+            <span class="lang-vi">Xuất & Nhập cấu hình JSON</span>
+          </h3>
           <p class="card-description">
-            Take full ownership of your rules. Export your complete rule configurations to JSON anytime and restore or share them across teams in seconds.
+            <span class="lang-en">
+              Take full ownership of your rules. Export your complete rule configurations to JSON anytime and restore or share them across teams in seconds.
+            </span>
+            <span class="lang-vi">
+              Chủ động sở hữu dữ liệu của mình. Xuất toàn bộ quy tắc ra file JSON chuẩn bất kỳ lúc nào để sao lưu hoặc chia sẻ dễ dàng giữa các thiết bị.
+            </span>
           </p>
         </div>
       </div>
@@ -334,12 +545,21 @@
       <div class="privacy-banner">
         <div class="privacy-banner-icon">🛡️</div>
         <div class="privacy-banner-content">
-          <h3>Compliant with Google Chrome Web Store Developer Policies</h3>
+          <h3>
+            <span class="lang-en">Compliant with Google Chrome Web Store Developer Policies</span>
+            <span class="lang-vi">Tuân thủ nghiêm ngặt chính sách của Google Chrome Web Store</span>
+          </h3>
           <p>
-            Smart Tab Cleaner strictly follows the <strong>Single Purpose</strong> policy and operates exclusively on-device. We do not sell user data, inject advertisements, or use external tracking servers.
+            <span class="lang-en">
+              Smart Tab Cleaner strictly follows the <strong>Single Purpose</strong> policy and operates exclusively on-device. We do not sell user data, inject advertisements, or use external tracking servers.
+            </span>
+            <span class="lang-vi">
+              Smart Tab Cleaner tuân thủ tuyệt đối chính sách <strong>Mục đích duy nhất (Single Purpose)</strong> và chỉ hoạt động cục bộ trên máy. Chúng tôi không bán dữ liệu, không chèn quảng cáo và không sử dụng máy chủ theo dõi bên ngoài.
+            </span>
           </p>
           <a href="./privacy.html" class="btn btn-outline btn-sm">
-            Read Complete Privacy Policy →
+            <span class="lang-en">Read Complete Privacy Policy →</span>
+            <span class="lang-vi">Đọc Chính sách bảo mật chi tiết →</span>
           </a>
         </div>
       </div>
@@ -350,64 +570,113 @@
   <section class="section" id="faq" style="background-color: #fafafa; border-top: 1px solid var(--border);">
     <div class="container container-narrow">
       <div class="section-header">
-        <div class="section-subtitle">Questions & Answers</div>
-        <h2 class="section-title">Frequently Asked Questions</h2>
-        <p class="section-lead">Find answers to common questions about permissions, safety, and functionality.</p>
+        <div class="section-subtitle">
+          <span class="lang-en">Questions & Answers</span>
+          <span class="lang-vi">Giải đáp thắc mắc</span>
+        </div>
+        <h2 class="section-title">
+          <span class="lang-en">Frequently Asked Questions</span>
+          <span class="lang-vi">Câu hỏi thường gặp</span>
+        </h2>
+        <p class="section-lead">
+          <span class="lang-en">Find answers to common questions about permissions, safety, and functionality.</span>
+          <span class="lang-vi">Tìm hiểu câu trả lời cho các thắc mắc về quyền truy cập, tính an toàn và cách hoạt động.</span>
+        </p>
       </div>
 
       <div class="faq-accordion">
         <!-- Item 1 -->
         <div class="faq-item open">
           <button class="faq-question">
-            <span>Why does the extension require the "history" and "tabs" permissions?</span>
+            <span>
+              <span class="lang-en">Why does the extension require the "history" and "tabs" permissions?</span>
+              <span class="lang-vi">Tại sao tiện ích yêu cầu quyền "history" và "tabs"?</span>
+            </span>
             <span class="faq-icon">▾</span>
           </button>
           <div class="faq-answer">
-            The <code>tabs</code> permission is required to detect when a newly opened page matches an active rule and close that specific tab. The <code>history</code> permission is used solely when you open the popup to let you view recent pages and conveniently click "Block" without re-opening spam sites. None of this data ever leaves your device.
+            <span class="lang-en">
+              The <code>tabs</code> permission is required to detect when a newly opened page matches an active rule and close that specific tab. The <code>history</code> permission is used solely when you open the popup to let you view recent pages and conveniently click "Block" without re-opening spam sites. None of this data ever leaves your device.
+            </span>
+            <span class="lang-vi">
+              Quyền <code>tabs</code> dùng để phát hiện trang mới mở có khớp với quy tắc không để ra lệnh đóng tab đó. Quyền <code>history</code> chỉ được đọc cục bộ khi bạn mở popup để hiển thị danh sách trang gần đây giúp bạn bấm "Chặn" nhanh mà không cần mở lại web spam. Dữ liệu này không bao giờ bị gửi ra khỏi máy tính của bạn.
+            </span>
           </div>
         </div>
 
         <!-- Item 2 -->
         <div class="faq-item">
           <button class="faq-question">
-            <span>Will it accidentally close tabs where I am actively working?</span>
+            <span>
+              <span class="lang-en">Will it accidentally close tabs where I am actively working?</span>
+              <span class="lang-vi">Tiện ích có thể vô tình đóng tab tôi đang làm việc không?</span>
+            </span>
             <span class="faq-icon">▾</span>
           </button>
           <div class="faq-answer">
-            No. The extension only closes tabs that match your explicitly configured rules or blocked domains. Internal browser URLs (like <code>chrome://</code>, <code>about:</code>, or Web Store pages) are completely protected and ignored.
+            <span class="lang-en">
+              No. The extension only closes tabs that match your explicitly configured rules or blocked domains. Internal browser URLs (like <code>chrome://</code>, <code>about:</code>, or Web Store pages) are completely protected and ignored.
+            </span>
+            <span class="lang-vi">
+              Không. Tiện ích chỉ đóng các tab khớp chính xác với quy tắc do chính bạn thiết lập. Toàn bộ các trang hệ thống nội bộ của trình duyệt (như <code>chrome://</code>, <code>about:</code>, hay Chrome Web Store) đều được bảo vệ và bỏ qua tuyệt đối.
+            </span>
           </div>
         </div>
 
         <!-- Item 3 -->
         <div class="faq-item">
           <button class="faq-question">
-            <span>What happens if a tab closes by mistake? Can I restore it?</span>
+            <span>
+              <span class="lang-en">What happens if a tab closes by mistake? Can I restore it?</span>
+              <span class="lang-vi">Nếu một tab bị đóng nhầm thì tôi có thể khôi phục lại không?</span>
+            </span>
             <span class="faq-icon">▾</span>
           </button>
           <div class="faq-answer">
-            Yes. Any tab closed by the extension is recorded in your standard Chrome browsing history. You can reopen it at any time using your browser's shortcut (<code>Ctrl + Shift + T</code> on Windows/Linux or <code>Cmd + Shift + T</code> on macOS).
+            <span class="lang-en">
+              Yes. Any tab closed by the extension is recorded in your standard Chrome browsing history. You can reopen it at any time using your browser's shortcut (<code>Ctrl + Shift + T</code> on Windows/Linux or <code>Cmd + Shift + T</code> on macOS).
+            </span>
+            <span class="lang-vi">
+              Hoàn toàn được. Mọi tab bị đóng đều được ghi lại trong lịch sử duyệt web chuẩn của Chrome. Bạn có thể mở lại bất cứ lúc nào bằng phím tắt quen thuộc của trình duyệt (<code>Ctrl + Shift + T</code> trên Windows/Linux hoặc <code>Cmd + Shift + T</code> trên macOS).
+            </span>
           </div>
         </div>
 
         <!-- Item 4 -->
         <div class="faq-item">
           <button class="faq-question">
-            <span>Does Smart Tab Cleaner use external analytics or tracking servers?</span>
+            <span>
+              <span class="lang-en">Does Smart Tab Cleaner use external analytics or tracking servers?</span>
+              <span class="lang-vi">Smart Tab Cleaner có sử dụng máy chủ theo dõi hay phân tích không?</span>
+            </span>
             <span class="faq-icon">▾</span>
           </button>
           <div class="faq-answer">
-            No. The extension contains zero tracking scripts, zero Google Analytics, and no telemetry. All rule evaluations happen in your browser's background Service Worker, and syncing is handled directly through Google's native <code>chrome.storage.sync</code> infrastructure.
+            <span class="lang-en">
+              No. The extension contains zero tracking scripts, zero Google Analytics, and no telemetry. All rule evaluations happen in your browser's background Service Worker, and syncing is handled directly through Google's native <code>chrome.storage.sync</code> infrastructure.
+            </span>
+            <span class="lang-vi">
+              Không. Tiện ích hoàn toàn không chứa mã theo dõi, không Google Analytics và không gửi bất kỳ dữ liệu telemetry nào. Mọi phép so khớp diễn ra ngay trong Service Worker nền cục bộ, và việc đồng bộ được thực hiện qua hạ tầng mã hóa chính thức của Google (<code>chrome.storage.sync</code>).
+            </span>
           </div>
         </div>
 
         <!-- Item 5 -->
         <div class="faq-item">
           <button class="faq-question">
-            <span>Is Smart Tab Cleaner free and open-source?</span>
+            <span>
+              <span class="lang-en">Is Smart Tab Cleaner free and open-source?</span>
+              <span class="lang-vi">Smart Tab Cleaner có miễn phí và mã nguồn mở không?</span>
+            </span>
             <span class="faq-icon">▾</span>
           </button>
           <div class="faq-answer">
-            Yes, Smart Tab Cleaner is 100% free and open-source under the MIT License. The complete source code is publicly accessible on GitHub.
+            <span class="lang-en">
+              Yes, Smart Tab Cleaner is 100% free and open-source under the MIT License. The complete source code is publicly accessible on GitHub.
+            </span>
+            <span class="lang-vi">
+              Có, Smart Tab Cleaner hoàn toàn miễn phí 100% và mã nguồn mở theo giấy phép MIT. Toàn bộ mã nguồn được công khai minh bạch trên GitHub.
+            </span>
           </div>
         </div>
       </div>
@@ -418,11 +687,18 @@
   <section class="section">
     <div class="container container-narrow">
       <div class="cta-box">
-        <h2>Reclaim your browser today.</h2>
-        <p>Eliminate annoying pop-up tabs and clutter links automatically with lightweight, zero-tracking tab automation.</p>
+        <h2>
+          <span class="lang-en">Reclaim your browser today.</span>
+          <span class="lang-vi">Làm chủ không gian trình duyệt của bạn.</span>
+        </h2>
+        <p>
+          <span class="lang-en">Eliminate annoying pop-up tabs and clutter links automatically with lightweight, zero-tracking tab automation.</span>
+          <span class="lang-vi">Loại bỏ các tab quảng cáo phiền toái và liên kết trung gian tự động với tiện ích siêu nhẹ, bảo mật tuyệt đối.</span>
+        </p>
         <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
           <a href="https://github.com/anhhtz/smart-tab-cleaner-extension/releases" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">
-            Add to Chrome — Free
+            <span class="lang-en">Add to Chrome — Free</span>
+            <span class="lang-vi">Thêm vào Chrome — Miễn phí</span>
           </a>
           <a href="https://github.com/anhhtz/smart-tab-cleaner-extension" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-lg" style="color: #ffffff; border-color: #3f3f46;">
             View on GitHub
@@ -442,32 +718,77 @@
             <span>Smart Tab Cleaner</span>
           </div>
           <p class="footer-desc">
-            A minimalist, privacy-first Chrome extension that automatically closes matching tabs and blocks clutter websites with Google Cloud Sync.
+            <span class="lang-en">A minimalist, privacy-first Chrome extension that automatically closes matching tabs and blocks clutter websites with Google Cloud Sync.</span>
+            <span class="lang-vi">Tiện ích Chrome tối giản, bảo mật, tự động đóng các tab thừa và chặn các website gây phiền toái với Google Cloud Sync.</span>
           </p>
         </div>
 
         <div class="footer-nav">
           <div>
-            <div class="footer-column-title">Product</div>
+            <div class="footer-column-title">
+              <span class="lang-en">Product</span>
+              <span class="lang-vi">Sản phẩm</span>
+            </div>
             <ul class="footer-links">
-              <li><a href="#features" class="footer-link">Features</a></li>
-              <li><a href="#how-it-works" class="footer-link">How It Works</a></li>
-              <li><a href="#preview" class="footer-link">Interactive Demo</a></li>
-              <li><a href="#faq" class="footer-link">FAQ</a></li>
+              <li>
+                <a href="#features" class="footer-link">
+                  <span class="lang-en">Features</span>
+                  <span class="lang-vi">Tính năng</span>
+                </a>
+              </li>
+              <li>
+                <a href="#how-it-works" class="footer-link">
+                  <span class="lang-en">How It Works</span>
+                  <span class="lang-vi">Cách hoạt động</span>
+                </a>
+              </li>
+              <li>
+                <a href="#preview" class="footer-link">
+                  <span class="lang-en">Interactive Demo</span>
+                  <span class="lang-vi">Dùng thử Demo</span>
+                </a>
+              </li>
+              <li>
+                <a href="#faq" class="footer-link">
+                  <span class="lang-en">FAQ</span>
+                  <span class="lang-vi">Hỏi đáp</span>
+                </a>
+              </li>
             </ul>
           </div>
 
           <div>
-            <div class="footer-column-title">Legal & Security</div>
+            <div class="footer-column-title">
+              <span class="lang-en">Legal & Security</span>
+              <span class="lang-vi">Pháp lý & Bảo mật</span>
+            </div>
             <ul class="footer-links">
-              <li><a href="./privacy.html" class="footer-link">Privacy Policy</a></li>
-              <li><a href="./terms.html" class="footer-link">Terms of Service</a></li>
-              <li><a href="https://developer.chrome.com/docs/webstore/program-policies/" target="_blank" rel="noopener noreferrer" class="footer-link">Chrome Policy Compliance</a></li>
+              <li>
+                <a href="./privacy.html" class="footer-link">
+                  <span class="lang-en">Privacy Policy</span>
+                  <span class="lang-vi">Chính sách bảo mật</span>
+                </a>
+              </li>
+              <li>
+                <a href="./terms.html" class="footer-link">
+                  <span class="lang-en">Terms of Service</span>
+                  <span class="lang-vi">Điều khoản dịch vụ</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://developer.chrome.com/docs/webstore/program-policies/" target="_blank" rel="noopener noreferrer" class="footer-link">
+                  <span class="lang-en">Chrome Policy Compliance</span>
+                  <span class="lang-vi">Tiêu chuẩn Chrome Store</span>
+                </a>
+              </li>
             </ul>
           </div>
 
           <div>
-            <div class="footer-column-title">Developer</div>
+            <div class="footer-column-title">
+              <span class="lang-en">Developer</span>
+              <span class="lang-vi">Nhà phát triển</span>
+            </div>
             <ul class="footer-links">
               <li><a href="https://github.com/anhhtz/smart-tab-cleaner-extension" target="_blank" rel="noopener noreferrer" class="footer-link">GitHub Repository</a></li>
               <li><a href="https://github.com/anhhtz/smart-tab-cleaner-extension/releases" target="_blank" rel="noopener noreferrer" class="footer-link">Releases</a></li>

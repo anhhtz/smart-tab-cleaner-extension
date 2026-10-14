@@ -8,28 +8,56 @@
   <link rel="icon" type="image/png" href="./icons/icon48.png">
   <link rel="stylesheet" href="./css/shadcn.css">
 </head>
-<body>
+<body data-lang="en">
 
   <!-- Top Navigation Bar -->
   <header class="site-header">
     <div class="container nav-wrapper">
       <a href="./index.html" class="brand-link">
         <img src="./icons/icon48.png" alt="Smart Tab Cleaner Logo" class="brand-logo">
-        <span>Smart Tab Cleaner</span>
+        <span class="brand-title">Smart Tab Cleaner</span>
+        <span class="brand-badge">v2.1.0</span>
       </a>
 
-      <nav>
+      <nav class="nav-center">
         <ul class="nav-links">
-          <li><a href="./index.html#features" class="nav-link">Features</a></li>
-          <li><a href="./index.html#how-it-works" class="nav-link">How It Works</a></li>
-          <li><a href="./privacy.html" class="nav-link">Privacy Policy</a></li>
-          <li><a href="./terms.html" class="nav-link active">Terms of Service</a></li>
+          <li>
+            <a href="./index.html#features" class="nav-link">
+              <span class="lang-en">Features</span>
+              <span class="lang-vi">Tính năng</span>
+            </a>
+          </li>
+          <li>
+            <a href="./index.html#how-it-works" class="nav-link">
+              <span class="lang-en">How It Works</span>
+              <span class="lang-vi">Quy trình</span>
+            </a>
+          </li>
+          <li>
+            <a href="./privacy.html" class="nav-link">
+              <span class="lang-en">Privacy Policy</span>
+              <span class="lang-vi">Chính sách bảo mật</span>
+            </a>
+          </li>
+          <li>
+            <a href="./terms.html" class="nav-link active">
+              <span class="lang-en">Terms of Service</span>
+              <span class="lang-vi">Điều khoản dịch vụ</span>
+            </a>
+          </li>
         </ul>
       </nav>
 
       <div class="nav-actions">
-        <a href="./index.html" class="btn btn-outline btn-sm">
-          ← Back to Home
+        <!-- Language Switcher Pill -->
+        <div class="lang-switch" title="Change Language / Đổi ngôn ngữ">
+          <button type="button" class="lang-switch-btn active" data-lang="en">EN</button>
+          <button type="button" class="lang-switch-btn" data-lang="vi">VI</button>
+        </div>
+
+        <a href="./index.html" class="btn btn-outline header-btn">
+          <span class="lang-en">← Back to Home</span>
+          <span class="lang-vi">← Về trang chủ</span>
         </a>
       </div>
     </div>
@@ -39,101 +67,204 @@
   <main class="legal-wrapper">
     <div class="container container-narrow">
       
-      <div class="legal-header">
-        <div class="badge badge-brand" style="margin-bottom: 12px;">Legal Agreement</div>
-        <h1>Terms of Service</h1>
-        <div class="legal-meta">
-          <span><strong>Effective Date:</strong> October 14, 2026</span>
-          <span>•</span>
-          <span><strong>Extension:</strong> Smart Tab Cleaner</span>
-          <span>•</span>
-          <span><strong>Developer:</strong> anhhtz</span>
+      <!-- ENGLISH VERSION -->
+      <div class="lang-en">
+        <div class="legal-header">
+          <div class="badge badge-brand" style="margin-bottom: 12px;">Legal Agreement</div>
+          <h1>Terms of Service</h1>
+          <div class="legal-meta">
+            <span><strong>Effective Date:</strong> October 14, 2026</span>
+            <span>•</span>
+            <span><strong>Extension:</strong> Smart Tab Cleaner</span>
+            <span>•</span>
+            <span><strong>Developer:</strong> anhhtz</span>
+          </div>
+        </div>
+
+        <div class="legal-content">
+          
+          <h2>1. Acceptance of Terms</h2>
+          <p>
+            By downloading, installing, accessing, or using the <strong>Smart Tab Cleaner</strong> browser extension ("the Extension") or visiting its associated web pages, you acknowledge that you have read, understood, and agreed to be legally bound by these Terms of Service ("Terms").
+          </p>
+          <p>
+            If you do not agree with any provision of these Terms, you must immediately uninstall the Extension and cease all use of its services.
+          </p>
+
+          <h2>2. License Grant & Open Source Terms</h2>
+          <p>
+            Smart Tab Cleaner is provided as free, open-source software under the <strong>MIT License</strong>. You are granted a personal, non-exclusive, worldwide, royalty-free license to use, inspect, study, copy, and modify the software in accordance with the terms of the MIT License:
+          </p>
+          <div class="callout" style="border-left-color: #71717a; background-color: #fafafa;">
+            <p style="color: #3f3f46; font-family: monospace; font-size: 0.8125rem;">
+              Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files, to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software...
+            </p>
+          </div>
+
+          <h2>3. Description of Service & Tab Closing Behavior</h2>
+          <p>
+            Smart Tab Cleaner is a browser productivity utility intended to automate tab closing based on user-defined regular expressions, keywords, and timeout values. You acknowledge and understand that:
+          </p>
+          <ul>
+            <li>The Extension executes tab closures based directly on the rules you configure or enable.</li>
+            <li>Tabs closed by the Extension are closed using the standard browser API (<code>chrome.tabs.remove</code>). Any unsaved state or ongoing form submissions in matching tabs may be terminated upon closure.</li>
+            <li>Closed tabs remain accessible in your standard Chrome history and may generally be reopened using the browser's "Reopen Closed Tab" shortcut (<code>Ctrl + Shift + T</code> or <code>Cmd + Shift + T</code>).</li>
+          </ul>
+
+          <h2>4. User Responsibilities & Acceptable Use</h2>
+          <p>
+            When using the Extension, you agree that:
+          </p>
+          <ul>
+            <li><strong>Rule Configuration:</strong> You are solely responsible for testing and verifying the regex patterns, keywords, and domains you add to your rules list. We encourage using the built-in "Test URL Matcher" before enabling broad patterns (e.g., avoiding over-generalized patterns like <code>.*</code> which would inadvertently match all visited websites).</li>
+            <li><strong>Lawful Use:</strong> You agree not to use the Extension for any unlawful, malicious, or unauthorized purpose.</li>
+            <li><strong>Data Backup:</strong> While the Extension provides local storage and Google Cloud Sync, you are encouraged to periodically export your rules via the "Export JSON" feature for safe-keeping.</li>
+          </ul>
+
+          <h2>5. Disclaimer of Warranties</h2>
+          <p>
+            TO THE MAXIMUM EXTENT PERMITTED UNDER APPLICABLE LAW, THE EXTENSION IS PROVIDED ON AN <strong>"AS IS"</strong> AND <strong>"AS AVAILABLE"</strong> BASIS, WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS, IMPLIED, STATUTORY, OR OTHERWISE.
+          </p>
+          <p>
+            THE DEVELOPER SPECIFICALLY DISCLAIMS ALL IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, AND NON-INFRINGEMENT. WE DO NOT WARRANT THAT THE OPERATION OF THE EXTENSION WILL BE UNINTERRUPTED, BUG-FREE, OR ERROR-FREE, OR THAT IT WILL SATISFY YOUR SPECIFIC REQUIREMENTS.
+          </p>
+
+          <h2>6. Limitation of Liability</h2>
+          <p>
+            IN NO EVENT SHALL THE DEVELOPER (ANHHTZ) OR ANY CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES ARISING OUT OF OR IN CONNECTION WITH YOUR USE OR INABILITY TO USE THE EXTENSION, INCLUDING BUT NOT LIMITED TO:
+          </p>
+          <ul>
+            <li>Loss of unsaved web page data, unsaved draft text, or active session state resulting from automated tab closure;</li>
+            <li>Accidental closure of critical or productive tabs due to overly broad or misconfigured regex rules;</li>
+            <li>Any interruption of workflow, lost profits, or browser instability.</li>
+          </ul>
+
+          <h2>7. Third-Party Services & Links</h2>
+          <p>
+            The Extension utilizes Google Chrome's native APIs, including <code>chrome.storage.sync</code>. The availability, synchronization speed, and encryption of synced data are governed by Google's own terms and policies. The developer assumes no responsibility for disruptions in Google's cloud synchronization infrastructure.
+          </p>
+
+          <h2>8. Modifications to Service & Terms</h2>
+          <p>
+            We reserve the right to modify, suspend, or discontinue the Extension or any feature at any time without prior notice. We may also revise these Terms of Service periodically. Changes take effect immediately upon posting to this web page. Your continued use of the Extension following updates constitutes your acceptance of the revised Terms.
+          </p>
+
+          <h2>9. Termination</h2>
+          <p>
+            You may terminate these Terms at any time by uninstalling the Extension and deleting any exported configuration files. The developer may revoke your right to use the software if you violate these Terms.
+          </p>
+
+          <h2>10. Contact Information</h2>
+          <p>
+            For inquiries, bug reports, feature requests, or legal notices concerning these Terms of Service, please contact:
+          </p>
+          <ul>
+            <li><strong>Developer:</strong> anhhtz</li>
+            <li><strong>Email:</strong> <a href="mailto:anhht.dev@gmail.com" style="color: var(--brand); text-decoration: underline;">anhht.dev@gmail.com</a></li>
+            <li><strong>GitHub Issues:</strong> <a href="https://github.com/anhhtz/smart-tab-cleaner-extension/issues" target="_blank" rel="noopener noreferrer" style="color: var(--brand); text-decoration: underline;">https://github.com/anhhtz/smart-tab-cleaner-extension/issues</a></li>
+          </ul>
+
         </div>
       </div>
 
-      <div class="legal-content">
-        
-        <h2>1. Acceptance of Terms</h2>
-        <p>
-          By downloading, installing, accessing, or using the <strong>Smart Tab Cleaner</strong> browser extension ("the Extension") or visiting its associated web pages, you acknowledge that you have read, understood, and agreed to be legally bound by these Terms of Service ("Terms").
-        </p>
-        <p>
-          If you do not agree with any provision of these Terms, you must immediately uninstall the Extension and cease all use of its services.
-        </p>
-
-        <h2>2. License Grant & Open Source Terms</h2>
-        <p>
-          Smart Tab Cleaner is provided as free, open-source software under the <strong>MIT License</strong>. You are granted a personal, non-exclusive, worldwide, royalty-free license to use, inspect, study, copy, and modify the software in accordance with the terms of the MIT License:
-        </p>
-        <div class="callout" style="border-left-color: #71717a; background-color: #fafafa;">
-          <p style="color: #3f3f46; font-family: monospace; font-size: 0.8125rem;">
-            Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files, to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software...
-          </p>
+      <!-- VIETNAMESE VERSION -->
+      <div class="lang-vi">
+        <div class="legal-header">
+          <div class="badge badge-brand" style="margin-bottom: 12px;">Thỏa thuận Pháp lý</div>
+          <h1>Điều khoản Dịch vụ</h1>
+          <div class="legal-meta">
+            <span><strong>Ngày hiệu lực:</strong> 14 tháng 10, 2026</span>
+            <span>•</span>
+            <span><strong>Tiện ích:</strong> Smart Tab Cleaner</span>
+            <span>•</span>
+            <span><strong>Tác giả:</strong> anhhtz</span>
+          </div>
         </div>
 
-        <h2>3. Description of Service & Tab Closing Behavior</h2>
-        <p>
-          Smart Tab Cleaner is a browser productivity utility intended to automate tab closing based on user-defined regular expressions, keywords, and timeout values. You acknowledge and understand that:
-        </p>
-        <ul>
-          <li>The Extension executes tab closures based directly on the rules you configure or enable.</li>
-          <li>Tabs closed by the Extension are closed using the standard browser API (<code>chrome.tabs.remove</code>). Any unsaved state or ongoing form submissions in matching tabs may be terminated upon closure.</li>
-          <li>Closed tabs remain accessible in your standard Chrome history and may generally be reopened using the browser's "Reopen Closed Tab" shortcut (<code>Ctrl + Shift + T</code> or <code>Cmd + Shift + T</code>).</li>
-        </ul>
+        <div class="legal-content">
+          
+          <h2>1. Chấp thuận các Điều khoản</h2>
+          <p>
+            Bằng việc tải xuống, cài đặt, truy cập hoặc sử dụng tiện ích mở rộng <strong>Smart Tab Cleaner</strong> ("Tiện ích") hoặc truy cập các trang web liên quan, bạn xác nhận rằng bạn đã đọc, hiểu và đồng ý chịu sự ràng buộc về mặt pháp lý của các Điều khoản Dịch vụ này ("Điều khoản").
+          </p>
+          <p>
+            Nếu bạn không đồng ý với bất kỳ điều khoản nào dưới đây, vui lòng lập tức gỡ cài đặt tiện ích và ngừng sử dụng dịch vụ.
+          </p>
 
-        <h2>4. User Responsibilities & Acceptable Use</h2>
-        <p>
-          When using the Extension, you agree that:
-        </p>
-        <ul>
-          <li><strong>Rule Configuration:</strong> You are solely responsible for testing and verifying the regex patterns, keywords, and domains you add to your rules list. We encourage using the built-in "Test URL Matcher" before enabling broad patterns (e.g., avoiding over-generalized patterns like <code>.*</code> which would inadvertently match all visited websites).</li>
-          <li><strong>Lawful Use:</strong> You agree not to use the Extension for any unlawful, malicious, or unauthorized purpose.</li>
-          <li><strong>Data Backup:</strong> While the Extension provides local storage and Google Cloud Sync, you are encouraged to periodically export your rules via the "Export JSON" feature for safe-keeping.</li>
-        </ul>
+          <h2>2. Cấp phép & Điều khoản Mã nguồn mở</h2>
+          <p>
+            Smart Tab Cleaner được cung cấp hoàn toàn miễn phí dưới dạng phần mềm nguồn mở theo <strong>Giấy phép MIT (MIT License)</strong>. Bạn được cấp quyền sử dụng, kiểm tra, nghiên cứu, sao chép và chỉnh sửa mã nguồn phù hợp với giấy phép MIT:
+          </p>
+          <div class="callout" style="border-left-color: #71717a; background-color: #fafafa;">
+            <p style="color: #3f3f46; font-family: monospace; font-size: 0.8125rem;">
+              Theo đây, quyền được cấp miễn phí cho bất kỳ cá nhân nào nhận được bản sao của phần mềm này và các tệp tài liệu liên quan, được toàn quyền xử lý phần mềm không giới hạn, bao gồm nhưng không giới hạn ở quyền sử dụng, sao chép, sửa đổi, hợp nhất, xuất bản, phân phối...
+            </p>
+          </div>
 
-        <h2>5. Disclaimer of Warranties</h2>
-        <p>
-          TO THE MAXIMUM EXTENT PERMITTED UNDER APPLICABLE LAW, THE EXTENSION IS PROVIDED ON AN <strong>"AS IS"</strong> AND <strong>"AS AVAILABLE"</strong> BASIS, WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS, IMPLIED, STATUTORY, OR OTHERWISE.
-        </p>
-        <p>
-          THE DEVELOPER SPECIFICALLY DISCLAIMS ALL IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, AND NON-INFRINGEMENT. WE DO NOT WARRANT THAT THE OPERATION OF THE EXTENSION WILL BE UNINTERRUPTED, BUG-FREE, OR ERROR-FREE, OR THAT IT WILL SATISFY YOUR SPECIFIC REQUIREMENTS.
-        </p>
+          <h2>3. Mô tả Dịch vụ & Hành vi Đóng tab Tự động</h2>
+          <p>
+            Smart Tab Cleaner là một công cụ tiện ích trình duyệt giúp tự động đóng tab dựa trên biểu thức chính quy (Regex), từ khóa tên miền và thời gian đếm ngược do chính bạn thiết lập. Bạn hiểu và đồng thuận rằng:
+          </p>
+          <ul>
+            <li>Tiện ích thực hiện đóng tab hoàn toàn theo các quy tắc do bạn định nghĩa hoặc kích hoạt.</li>
+            <li>Các tab được đóng thông qua API chuẩn của trình duyệt (<code>chrome.tabs.remove</code>). Bất kỳ dữ liệu biểu mẫu (form) chưa được lưu hoặc tiến trình làm việc dở dang trên tab bị đóng có thể sẽ bị kết thúc.</li>
+            <li>Tab đã đóng vẫn được ghi nhận trong lịch sử trình duyệt Chrome và thường có thể mở lại bằng phím tắt chuẩn của trình duyệt (<code>Ctrl + Shift + T</code> trên Windows hoặc <code>Cmd + Shift + T</code> trên macOS).</li>
+          </ul>
 
-        <h2>6. Limitation of Liability</h2>
-        <p>
-          IN NO EVENT SHALL THE DEVELOPER (ANHHTZ) OR ANY CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES ARISING OUT OF OR IN CONNECTION WITH YOUR USE OR INABILITY TO USE THE EXTENSION, INCLUDING BUT NOT LIMITED TO:
-        </p>
-        <ul>
-          <li>Loss of unsaved web page data, unsaved draft text, or active session state resulting from automated tab closure;</li>
-          <li>Accidental closure of critical or productive tabs due to overly broad or misconfigured regex rules;</li>
-          <li>Any interruption of workflow, lost profits, or browser instability.</li>
-        </ul>
+          <h2>4. Trách nhiệm của Người dùng & Sử dụng Hợp lệ</h2>
+          <p>
+            Khi sử dụng tiện ích, bạn cam kết và đồng ý rằng:
+          </p>
+          <ul>
+            <li><strong>Cấu hình Quy tắc:</strong> Bạn hoàn toàn chịu trách nhiệm kiểm tra và xác minh các mẫu regex và tên miền mà bạn đưa vào danh sách chặn. Chúng tôi khuyến khích bạn sử dụng tính năng "Kiểm tra so khớp URL" có sẵn trong popup trước khi bật các quy tắc quá rộng (ví dụ tránh sử dụng regex quá chung chung như <code>.*</code> sẽ vô tình khớp và đóng tất cả website).</li>
+            <li><strong>Sử dụng Hợp pháp:</strong> Bạn đồng ý không sử dụng tiện ích cho bất kỳ mục đích trái pháp luật, phá hoại hoặc gây hại nào.</li>
+            <li><strong>Sao lưu Dữ liệu:</strong> Dù tiện ích có hỗ trợ lưu trữ cục bộ và đồng bộ Google Cloud Sync, bạn nên chủ động xuất file cấu hình dự phòng bằng tính năng "Xuất JSON" định kỳ.</li>
+          </ul>
 
-        <h2>7. Third-Party Services & Links</h2>
-        <p>
-          The Extension utilizes Google Chrome's native APIs, including <code>chrome.storage.sync</code>. The availability, synchronization speed, and encryption of synced data are governed by Google's own terms and policies. The developer assumes no responsibility for disruptions in Google's cloud synchronization infrastructure.
-        </p>
+          <h2>5. Tuyên bố Miễn trừ Bảo đảm (Disclaimer of Warranties)</h2>
+          <p>
+            TRONG PHẠM VI TỐI ĐA ĐƯỢC PHÁP LUẬT CHO PHÉP, TIỆN ÍCH ĐƯỢC CUNG CẤP TRÊN NGUYÊN TẮC <strong>"NGUYÊN TRẠNG" (AS IS)</strong> VÀ <strong>"SẴN CÓ" (AS AVAILABLE)</strong>, KHÔNG CÓ BẤT KỲ SỰ BẢO ĐẢM NÀO, DÙ RÕ RÀNG, NGỤ Ý, THEO LUẬT ĐỊNH HAY CÁCH KHÁC.
+          </p>
+          <p>
+            TÁC GIẢ KHÔNG BẢO ĐẢM RẰNG HOẠT ĐỘNG CỦA TIỆN ÍCH SẼ HOÀN TOÀN KHÔNG BỊ GIÁN ĐOẠN, KHÔNG CÓ LỖI (BUG-FREE) HOẶC SẼ THỎA MÃN TẤT CẢ CÁC YÊU CẦU CỤ THỂ CỦA BẠN.
+          </p>
 
-        <h2>8. Modifications to Service & Terms</h2>
-        <p>
-          We reserve the right to modify, suspend, or discontinue the Extension or any feature at any time without prior notice. We may also revise these Terms of Service periodically. Changes take effect immediately upon posting to this web page. Your continued use of the Extension following updates constitutes your acceptance of the revised Terms.
-        </p>
+          <h2>6. Giới hạn Trách nhiệm Pháp lý (Limitation of Liability)</h2>
+          <p>
+            TRONG MỌI TRƯỜNG HỢP, TÁC GIẢ (ANHHTZ) HOẶC BẤT KỲ NGƯỜI ĐÓNG GÓP NÀO SẼ KHÔNG CHỊU TRÁCH NHIỆM CHO BẤT KỲ THIỆT HẠI TRỰC TIẾP, GIÁN TIẾP, NGẪU NHIÊN, ĐẶC BIỆT HOẶC HỆ QUẢ NÀO PHÁT SINH TỪ VIỆC SỬ DỤNG HOẶC KHÔNG THỂ SỬ DỤNG TIỆN ÍCH, BAO GỒM NHƯNG KHÔNG GIỚI HẠN:
+          </p>
+          <ul>
+            <li>Mất mát dữ liệu web chưa lưu, bản nháp văn bản chưa gửi, hoặc phiên đăng nhập bị đóng ngắt do tính năng tự đóng tab;</li>
+            <li>Vô tình đóng các tab công việc quan trọng do người dùng thiết lập quy tắc regex sai hoặc quá rộng;</li>
+            <li>Bất kỳ gián đoạn công việc hay sự mất ổn định trình duyệt nào khác.</li>
+          </ul>
 
-        <h2>9. Termination</h2>
-        <p>
-          You may terminate these Terms at any time by uninstalling the Extension and deleting any exported configuration files. The developer may revoke your right to use the software if you violate these Terms.
-        </p>
+          <h2>7. Dịch vụ Bên thứ ba & Google Cloud Sync</h2>
+          <p>
+            Tiện ích sử dụng API nội bộ của Google Chrome, bao gồm <code>chrome.storage.sync</code>. Tính sẵn sàng, tốc độ đồng bộ và mã hóa dữ liệu đều thuộc quyền quản lý và chính sách riêng của Google. Tác giả không chịu trách nhiệm đối với sự cố gián đoạn đến từ hạ tầng máy chủ của Google.
+          </p>
 
-        <h2>10. Contact Information</h2>
-        <p>
-          For inquiries, bug reports, feature requests, or legal notices concerning these Terms of Service, please contact:
-        </p>
-        <ul>
-          <li><strong>Developer:</strong> anhhtz</li>
-          <li><strong>Email:</strong> <a href="mailto:anhht.dev@gmail.com" style="color: var(--brand); text-decoration: underline;">anhht.dev@gmail.com</a></li>
-          <li><strong>GitHub Issues:</strong> <a href="https://github.com/anhhtz/smart-tab-cleaner-extension/issues" target="_blank" rel="noopener noreferrer" style="color: var(--brand); text-decoration: underline;">https://github.com/anhhtz/smart-tab-cleaner-extension/issues</a></li>
-        </ul>
+          <h2>8. Sửa đổi Dịch vụ & Điều khoản</h2>
+          <p>
+            Chúng tôi có quyền sửa đổi, tạm dừng hoặc ngừng cung cấp tiện ích hoặc bất kỳ tính năng nào bất kỳ lúc nào mà không cần báo trước. Chúng tôi cũng có thể cập nhật Điều khoản Dịch vụ này định kỳ. Các thay đổi có hiệu lực ngay khi được đăng tải lên trang web này. Việc bạn tiếp tục sử dụng tiện ích đồng nghĩa với việc bạn chấp thuận các điều khoản đã sửa đổi.
+          </p>
 
+          <h2>9. Chấm dứt</h2>
+          <p>
+            Bạn có thể chấm dứt thỏa thuận này bất kỳ lúc nào bằng cách gỡ cài đặt tiện ích khỏi trình duyệt. Tác giả có quyền thu hồi quyền sử dụng nếu bạn vi phạm các điều khoản này.
+          </p>
+
+          <h2>10. Thông tin Liên hệ</h2>
+          <p>
+            Đối với các thắc mắc, báo cáo lỗi, yêu cầu tính năng hoặc các thông báo pháp lý liên quan đến Điều khoản Dịch vụ này, vui lòng liên hệ:
+          </p>
+          <ul>
+            <li><strong>Tác giả:</strong> anhhtz</li>
+            <li><strong>Email:</strong> <a href="mailto:anhht.dev@gmail.com" style="color: var(--brand); text-decoration: underline;">anhht.dev@gmail.com</a></li>
+            <li><strong>Báo lỗi GitHub Issues:</strong> <a href="https://github.com/anhhtz/smart-tab-cleaner-extension/issues" target="_blank" rel="noopener noreferrer" style="color: var(--brand); text-decoration: underline;">https://github.com/anhhtz/smart-tab-cleaner-extension/issues</a></li>
+          </ul>
+
+        </div>
       </div>
 
     </div>
@@ -147,12 +278,19 @@
           © 2026 Smart Tab Cleaner. Maintained by <a href="https://github.com/anhhtz" target="_blank" rel="noopener noreferrer" style="text-decoration: underline;">anhhtz</a>.
         </div>
         <div>
-          <a href="./index.html" class="footer-link" style="margin-right: 16px;">Home</a>
-          <a href="./privacy.html" class="footer-link">Privacy Policy</a>
+          <a href="./index.html" class="footer-link" style="margin-right: 16px;">
+            <span class="lang-en">Home</span>
+            <span class="lang-vi">Trang chủ</span>
+          </a>
+          <a href="./privacy.html" class="footer-link">
+            <span class="lang-en">Privacy Policy</span>
+            <span class="lang-vi">Chính sách bảo mật</span>
+          </a>
         </div>
       </div>
     </div>
   </footer>
 
+  <script src="./js/main.js"></script>
 </body>
 </html>
