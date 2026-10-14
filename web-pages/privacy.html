@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — Smart Tab Cleaner</title>
+  <meta name="description" content="Official Privacy Policy for Smart Tab Cleaner Chrome Extension. Fully compliant with Google Chrome Web Store Developer Program Policies.">
+  <link rel="icon" type="image/png" href="./icons/icon48.png">
+  <link rel="stylesheet" href="./css/shadcn.css">
+</head>
+<body>
+
+  <!-- Top Navigation Bar -->
+  <header class="site-header">
+    <div class="container nav-wrapper">
+      <a href="./index.html" class="brand-link">
+        <img src="./icons/icon48.png" alt="Smart Tab Cleaner Logo" class="brand-logo">
+        <span>Smart Tab Cleaner</span>
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="./index.html#features" class="nav-link">Features</a></li>
+          <li><a href="./index.html#how-it-works" class="nav-link">How It Works</a></li>
+          <li><a href="./privacy.html" class="nav-link active">Privacy Policy</a></li>
+          <li><a href="./terms.html" class="nav-link">Terms of Service</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="./index.html" class="btn btn-outline btn-sm">
+          ← Back to Home
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Legal Main Container -->
+  <main class="legal-wrapper">
+    <div class="container container-narrow">
+      
+      <div class="legal-header">
+        <div class="badge badge-brand" style="margin-bottom: 12px;">Google Chrome Web Store Compliant</div>
+        <h1>Privacy Policy</h1>
+        <div class="legal-meta">
+          <span><strong>Effective Date:</strong> October 14, 2026</span>
+          <span>•</span>
+          <span><strong>Extension:</strong> Smart Tab Cleaner</span>
+          <span>•</span>
+          <span><strong>Developer:</strong> anhhtz</span>
+        </div>
+      </div>
+
+      <div class="legal-content">
+        
+        <div class="callout">
+          <p>
+            <strong>Summary:</strong> Smart Tab Cleaner is built on a <strong>100% Client-Side, Privacy-First architecture</strong>. We do <strong>NOT</strong> collect, track, log, sell, or transmit any of your personal data, browsing history, or search queries to any third-party servers. All rule matching and tab management happen locally on your computer.
+          </p>
+        </div>
+
+        <h2>1. Introduction & Single Purpose Statement</h2>
+        <p>
+          This Privacy Policy outlines how the <strong>Smart Tab Cleaner</strong> browser extension ("the Extension", "we", "our") handles user information and permissions.
+        </p>
+        <p>
+          In accordance with the <strong>Google Chrome Web Store Developer Program Policies</strong>, Smart Tab Cleaner is committed to a clear <strong>Single Purpose</strong>: <em>Automated tab lifecycle management</em> — automatically detecting and closing user-designated clutter tabs (such as pop-up advertisements, spam redirect links, and disposable app launchers like Zoom, Microsoft Teams, and Telegram) according to customizable rules and countdown timers.
+        </p>
+
+        <h2>2. Data Collection & Limited Use Disclosure</h2>
+        <p>
+          We strictly practice <strong>Data Minimization</strong>. Under no circumstances do we collect, process, or transmit Personally Identifiable Information (PII). Specifically:
+        </p>
+        <ul>
+          <li><strong>No Personal Information:</strong> We do not ask for or collect your name, email address, IP address, geolocation, or hardware identifiers.</li>
+          <li><strong>No Remote Tracking or Telemetry:</strong> We do not integrate any third-party analytics (such as Google Analytics, Mixpanel, or Amplitude), crash reporters, or tracking beacons.</li>
+          <li><strong>No Sale or Transfer of Data:</strong> We never sell, rent, monetize, or disclose your browsing information to brokers, advertisers, or third parties.</li>
+          <li><strong>No Advertising:</strong> The Extension does not inject or serve advertisements into web pages or within the extension interface.</li>
+        </ul>
+
+        <h2>3. Chrome Permissions & Technical Justification</h2>
+        <p>
+          To deliver its core tab-closing capabilities, Smart Tab Cleaner requests specific browser permissions in its <code>manifest.json</code>. Each permission is strictly used for its declared local purpose:
+        </p>
+
+        <table class="permission-table">
+          <thead>
+            <tr>
+              <th style="width: 25%;">Permission</th>
+              <th style="width: 35%;">Why It Is Needed</th>
+              <th style="width: 40%;">How Data Is Handled</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>tabs</code></td>
+              <td>
+                Required to inspect the URL of newly completed browser tabs in real-time, determine whether they match an active rule, and invoke <code>chrome.tabs.remove()</code> after the countdown delay. Also used to populate the list of currently open tabs in the popup for the Quick Block feature.
+              </td>
+              <td>
+                <strong>Processed 100% in local memory.</strong> URLs are evaluated against local regex patterns and immediately discarded. URLs are never written to permanent disk logs, external servers, or remote endpoints.
+              </td>
+            </tr>
+            <tr>
+              <td><code>history</code></td>
+              <td>
+                Required to query recently visited websites solely when the user opens the extension popup, enabling the convenient "Quick Block from History" feature so users can block annoying sites without having to reopen them.
+              </td>
+              <td>
+                <strong>Queried on-demand and kept local.</strong> History items are fetched temporarily into memory only while the popup is open. History items are never uploaded or transferred anywhere.
+              </td>
+            </tr>
+            <tr>
+              <td><code>storage</code></td>
+              <td>
+                Required to save your configured rules, blacklist patterns, and countdown settings.
+              </td>
+              <td>
+                Data is stored locally on your device via <code>chrome.storage.local</code> and optionally synchronized across your devices via Google's official <code>chrome.storage.sync</code> API linked to your signed-in Google Account.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>4. Cloud Synchronization (Google Chrome Sync)</h2>
+        <p>
+          Smart Tab Cleaner provides cross-device synchronization using Chrome's native <code>chrome.storage.sync</code> API.
+        </p>
+        <ul>
+          <li>Data synchronized consists exclusively of user-created rule sets (e.g., rule names, regex patterns, enabled states) and configuration values (default timeout in milliseconds).</li>
+          <li>This synchronization is entirely managed and secured by Google using the security infrastructure of your Google Account. We do not own, maintain, or operate any intermediary synchronization servers.</li>
+          <li>If you do not sign in to a Google Account or disable Chrome Sync, all configurations remain strictly confined to your local device.</li>
+        </ul>
+
+        <h2>5. Data Retention, Export, and Deletion</h2>
+        <p>
+          You maintain full sovereignty over your data at all times:
+        </p>
+        <ul>
+          <li><strong>Manual Management:</strong> You can view, add, modify, or delete any individual rule or setting through the extension popup.</li>
+          <li><strong>JSON Export / Import:</strong> You can export your entire rule database to a standard JSON file at any time for backup or inspection.</li>
+          <li><strong>Complete Deletion:</strong> Removing or uninstalling Smart Tab Cleaner from your Chrome browser immediately and permanently purges all local storage and synced rules associated with the extension.</li>
+        </ul>
+
+        <h2>6. Third-Party Websites & External Links</h2>
+        <p>
+          Smart Tab Cleaner interacts with third-party URLs exclusively by reading their address string to determine if a rule match occurs. The Extension does not inject content scripts into page DOMs, does not modify website content, and does not read web page cookies, passwords, or form inputs.
+        </p>
+
+        <h2>7. Compliance with Global Privacy Regulations</h2>
+        <h3>General Data Protection Regulation (GDPR - EU)</h3>
+        <p>
+          Because Smart Tab Cleaner does not collect, process, or store personal data on any server, the developer acts neither as a Data Controller nor as a Data Processor under the GDPR. All operations remain entirely within the user's localized browser boundary.
+        </p>
+
+        <h3>California Consumer Privacy Act (CCPA)</h3>
+        <p>
+          We do not collect consumer personal information, nor do we sell or share personal information as defined by the CCPA.
+        </p>
+
+        <h3>Children’s Online Privacy Protection Act (COPPA)</h3>
+        <p>
+          Smart Tab Cleaner is safe for all audiences and does not knowingly collect any information from children under the age of 13.
+        </p>
+
+        <h2>8. Changes to This Privacy Policy</h2>
+        <p>
+          We may update this Privacy Policy from time to time to reflect modifications to extension features, improvements in browser security policies, or regulatory requirements. Any updates will be published directly to this page with an updated "Effective Date".
+        </p>
+
+        <h2>9. Contact & Inquiries</h2>
+        <p>
+          If you have any questions, suggestions, or concerns regarding this Privacy Policy or the security of the Smart Tab Cleaner extension, please contact the developer directly:
+        </p>
+        <ul>
+          <li><strong>Developer:</strong> anhhtz</li>
+          <li><strong>Email:</strong> <a href="mailto:anhht.dev@gmail.com" style="color: var(--brand); text-decoration: underline;">anhht.dev@gmail.com</a></li>
+          <li><strong>GitHub Repository:</strong> <a href="https://github.com/anhhtz/smart-tab-cleaner-extension" target="_blank" rel="noopener noreferrer" style="color: var(--brand); text-decoration: underline;">https://github.com/anhhtz/smart-tab-cleaner-extension</a></li>
+        </ul>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom" style="border-top: none; padding-top: 0;">
+        <div>
+          © 2026 Smart Tab Cleaner. Maintained by <a href="https://github.com/anhhtz" target="_blank" rel="noopener noreferrer" style="text-decoration: underline;">anhhtz</a>.
+        </div>
+        <div>
+          <a href="./index.html" class="footer-link" style="margin-right: 16px;">Home</a>
+          <a href="./terms.html" class="footer-link">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

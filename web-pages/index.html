@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Tab Cleaner — Automated Tab Lifecycle & Anti-Clutter Extension</title>
+  <meta name="description" content="Automate tab closing with custom rules, instant quick block from history, and seamless Google Cloud Sync. 100% Client-Side & Privacy-First.">
+  <link rel="icon" type="image/png" href="./icons/icon48.png">
+  <link rel="stylesheet" href="./css/shadcn.css">
+</head>
+<body>
+
+  <!-- Top Navigation Bar -->
+  <header class="site-header">
+    <div class="container nav-wrapper">
+      <a href="./index.html" class="brand-link">
+        <img src="./icons/icon48.png" alt="Smart Tab Cleaner Logo" class="brand-logo">
+        <span>Smart Tab Cleaner</span>
+        <span class="badge badge-outline">v2.1.0</span>
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#features" class="nav-link">Features</a></li>
+          <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
+          <li><a href="#preview" class="nav-link">Interactive Demo</a></li>
+          <li><a href="#faq" class="nav-link">FAQ</a></li>
+          <li><a href="./privacy.html" class="nav-link">Privacy Policy</a></li>
+          <li><a href="./terms.html" class="nav-link">Terms</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="https://github.com/anhhtz/smart-tab-cleaner-extension" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+          GitHub
+        </a>
+        <a href="https://github.com/anhhtz/smart-tab-cleaner-extension/releases" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+          Add to Chrome
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="hero-pill">
+        <span class="badge badge-brand">
+          <span style="font-size: 10px;">●</span> 100% Client-Side • Google Cloud Sync • Zero Tracking
+        </span>
+      </div>
+
+      <h1 class="hero-title">Keep your browser clean.<br>Automatically close clutter tabs.</h1>
+      
+      <p class="hero-lead">
+        Automate the cleanup of annoying pop-up tabs, spam redirects, and disposable launcher links (Zoom, Teams, Telegram) using smart regex rules and customizable countdown delays.
+      </p>
+
+      <div class="hero-cta">
+        <a href="https://github.com/anhhtz/smart-tab-cleaner-extension/releases" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="4"></circle><line x1="21.17" y1="8" x2="12" y2="8"></line><line x1="3.95" y1="6.06" x2="8.54" y2="14"></line><line x1="10.88" y1="21.94" x2="15.46" y2="14"></line></svg>
+          Add to Chrome — Free
+        </a>
+        <a href="#preview" class="btn btn-outline btn-lg">
+          Try Live Demo
+        </a>
+      </div>
+
+      <div class="meta-trust">
+        <div class="meta-trust-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>
+          Manifest V3 Ready
+        </div>
+        <div class="meta-trust-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>
+          Encrypted Chrome Sync
+        </div>
+        <div class="meta-trust-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>
+          No Ads & No Analytics
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Live Preview Section -->
+  <section class="section" id="preview" style="padding-top: 0;">
+    <div class="container preview-container">
+      <div class="browser-mockup">
+        <!-- Mockup top bar -->
+        <div class="browser-mockup-header">
+          <div class="window-dots">
+            <div class="window-dot red"></div>
+            <div class="window-dot yellow"></div>
+            <div class="window-dot green"></div>
+          </div>
+          <div style="font-size: 0.75rem; color: #a1a1aa; font-family: monospace;">smart-tab-cleaner-preview.local</div>
+          <div style="width: 40px;"></div>
+        </div>
+
+        <!-- Mockup body containing Extension UI -->
+        <div class="browser-mockup-body">
+          <div class="extension-frame">
+            <!-- Extension Header -->
+            <div class="ext-header">
+              <div class="ext-top">
+                <div class="ext-brand">
+                  <img src="./icons/icon48.png" width="20" height="20" alt="icon">
+                  <span>Smart Tab Cleaner</span>
+                </div>
+                <div class="ext-sync-pill">
+                  <span>☁️</span> Synced
+                </div>
+              </div>
+
+              <!-- Extension Nav Tabs -->
+              <div class="ext-tabs-nav">
+                <button class="ext-tab-btn active" data-tab="paneHistory">🕒 History & Tabs</button>
+                <button class="ext-tab-btn" data-tab="paneRules">📋 Rules (4)</button>
+                <button class="ext-tab-btn" data-tab="paneSettings">⚙️ Settings</button>
+              </div>
+            </div>
+
+            <!-- TAB 1: History & Open Tabs Pane -->
+            <div class="ext-content ext-tab-pane" id="paneHistory">
+              <div style="margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 0.75rem; color: #71717a; font-weight: 500;">⚡ Open Tabs & History</span>
+                <span class="badge badge-outline" style="font-size: 0.6875rem;">Interactive Demo</span>
+              </div>
+
+              <!-- List item 1 -->
+              <div class="ext-list-item">
+                <div class="ext-item-info">
+                  <div class="ext-item-title">Pop-up Casino Ad Redirect</div>
+                  <div class="ext-item-url">https://livecasino-tracker.net/ad?click=1</div>
+                </div>
+                <button class="demo-block-btn ext-btn-block">⚡ Block</button>
+              </div>
+
+              <!-- List item 2 -->
+              <div class="ext-list-item">
+                <div class="ext-item-info">
+                  <div class="ext-item-title">Zoom Meeting Launch Page</div>
+                  <div class="ext-item-url">https://zoom.us/j/98421034821</div>
+                </div>
+                <button class="demo-block-btn ext-btn-blocked">✓ Blocked</button>
+              </div>
+
+              <!-- List item 3 -->
+              <div class="ext-list-item">
+                <div class="ext-item-info">
+                  <div class="ext-item-title">Telegram Channel Join Link</div>
+                  <div class="ext-item-url">https://t.me/dev_updates_channel</div>
+                </div>
+                <button class="demo-block-btn ext-btn-block">⚡ Block</button>
+              </div>
+
+              <div style="font-size: 0.6875rem; color: #a1a1aa; text-align: center; margin-top: 10px;">
+                💡 Click "Block" to toggle rules instantly!
+              </div>
+            </div>
+
+            <!-- TAB 2: Rules & Live Tester Pane -->
+            <div class="ext-content ext-tab-pane" id="paneRules" style="display: none;">
+              <!-- Tester Box -->
+              <div style="background: #fafafa; border: 1px solid var(--border); border-radius: 8px; padding: 10px; margin-bottom: 12px;">
+                <div style="font-size: 0.75rem; font-weight: 600; margin-bottom: 6px;">🧪 Test URL Matcher</div>
+                <input type="text" id="demoTesterInput" placeholder="Paste URL to test (e.g. zoom.us/j/...)" value="https://zoom.us/j/912837482" style="width: 100%; font-size: 0.75rem; padding: 6px 8px; border: 1px solid var(--border); border-radius: 6px; outline: none; margin-bottom: 6px;">
+                
+                <div style="display: flex; gap: 4px; flex-wrap: wrap; margin-bottom: 6px;">
+                  <button class="demo-url-chip badge badge-outline" data-url="https://zoom.us/j/912837482" style="cursor: pointer;">Zoom</button>
+                  <button class="demo-url-chip badge badge-outline" data-url="https://t.me/samplegroup" style="cursor: pointer;">Telegram</button>
+                  <button class="demo-url-chip badge badge-outline" data-url="https://livecasino.example.com" style="cursor: pointer;">Ad Match</button>
+                  <button class="demo-url-chip badge badge-outline" data-url="https://github.com/explore" style="cursor: pointer;">Safe Site</button>
+                </div>
+
+                <div id="demoTesterResult"></div>
+              </div>
+
+              <!-- Rules preview list -->
+              <div style="font-size: 0.6875rem; font-weight: 600; color: #71717a; margin-bottom: 6px;">ACTIVE AUTO-CLOSE RULES</div>
+              
+              <div class="ext-list-item" style="padding: 6px 10px;">
+                <div class="ext-item-info">
+                  <div class="ext-item-title" style="font-size: 0.75rem;">Zoom Meeting Launcher</div>
+                  <div class="ext-item-url" style="font-size: 0.6875rem; font-family: monospace;">zoom\.us/j/.*</div>
+                </div>
+                <span class="badge badge-brand" style="font-size: 0.6875rem;">500ms</span>
+              </div>
+
+              <div class="ext-list-item" style="padding: 6px 10px;">
+                <div class="ext-item-info">
+                  <div class="ext-item-title" style="font-size: 0.75rem;">Telegram Join Link</div>
+                  <div class="ext-item-url" style="font-size: 0.6875rem; font-family: monospace;">t\.me/.*</div>
+                </div>
+                <span class="badge badge-brand" style="font-size: 0.6875rem;">500ms</span>
+              </div>
+            </div>
+
+            <!-- TAB 3: Settings Pane -->
+            <div class="ext-content ext-tab-pane" id="paneSettings" style="display: none;">
+              <div style="border-bottom: 1px solid var(--border); padding-bottom: 10px; margin-bottom: 10px;">
+                <div style="font-size: 0.75rem; font-weight: 600; margin-bottom: 2px;">Default Countdown Delay</div>
+                <div style="font-size: 0.6875rem; color: #71717a; margin-bottom: 6px;">Delay in milliseconds before closing matching tabs.</div>
+                <div style="display: flex; align-items: center; gap: 8px;">
+                  <span class="badge badge-brand">500 ms (Default)</span>
+                  <span class="badge badge-outline">0 ms (Instant)</span>
+                </div>
+              </div>
+
+              <div>
+                <div style="font-size: 0.75rem; font-weight: 600; margin-bottom: 2px;">Backup & Cloud Sync</div>
+                <div style="font-size: 0.6875rem; color: #71717a; margin-bottom: 8px;">All rules automatically sync across your Chrome devices via your Google Account.</div>
+                <div style="display: flex; gap: 8px;">
+                  <span class="btn btn-outline btn-sm" style="font-size: 0.6875rem; padding: 4px 8px;">📥 Export JSON</span>
+                  <span class="btn btn-outline btn-sm" style="font-size: 0.6875rem; padding: 4px 8px;">📤 Import JSON</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section class="section" id="how-it-works" style="background-color: #fafafa; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-subtitle">Workflow</div>
+        <h2 class="section-title">How Smart Tab Cleaner Works</h2>
+        <p class="section-lead">A seamless, non-intrusive background service worker that keeps your browser decluttered without manual effort.</p>
+      </div>
+
+      <div class="steps-container">
+        <!-- Step 1 -->
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <h3 class="card-title">Define Rules or Click Block</h3>
+          <p class="card-description">
+            Open the extension popup to view recently visited sites or open tabs. Simply click <strong>Block</strong> or type custom Regular Expressions with your desired close delay.
+          </p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <h3 class="card-title">Smart URL Match & Countdown</h3>
+          <p class="card-description">
+            Whenever a tab finishes loading, the background worker evaluates the URL. If matched, the icon turns into a countdown timer badge while waiting for the timer to elapse.
+          </p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <h3 class="card-title">Clean Tab & Multi-Device Sync</h3>
+          <p class="card-description">
+            The target tab closes automatically. Your rules and settings immediately sync across all your laptops and desktops via Google's encrypted <code>chrome.storage.sync</code>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Features Grid -->
+  <section class="section" id="features">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-subtitle">Core Capabilities</div>
+        <h2 class="section-title">Engineered for Productivity and Peace of Mind</h2>
+        <p class="section-lead">Minimalist UI, maximum speed, and uncompromising respect for your privacy.</p>
+      </div>
+
+      <div class="features-grid">
+        <!-- Feature 1 -->
+        <div class="card">
+          <div class="feature-icon-wrapper">⚡</div>
+          <h3 class="card-title">Fast Auto-Close Delay</h3>
+          <p class="card-description">
+            Configure countdown delays down to 0ms for instant pop-up kills, or 500ms to allow external app launch protocols (e.g., desktop Zoom or Teams client) to trigger first.
+          </p>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="card">
+          <div class="feature-icon-wrapper">🛡️</div>
+          <h3 class="card-title">1-Click Quick Block</h3>
+          <p class="card-description">
+            No need to manually type regex syntax. Browse recent history or active tabs right in the popup and click "Block" to automatically extract clean domain rules.
+          </p>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="card">
+          <div class="feature-icon-wrapper">☁️</div>
+          <h3 class="card-title">Google Cloud Sync</h3>
+          <p class="card-description">
+            Full support for Chrome's native <code>chrome.storage.sync</code>. Configure your rules once at work and have them seamlessly apply to your personal computer.
+          </p>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="card">
+          <div class="feature-icon-wrapper">🎯</div>
+          <h3 class="card-title">Regex Matcher & Tester</h3>
+          <p class="card-description">
+            Includes a built-in interactive URL pattern tester. Verify that your regex pattern properly triggers or avoids false positives before committing changes.
+          </p>
+        </div>
+
+        <!-- Feature 5 -->
+        <div class="card">
+          <div class="feature-icon-wrapper">🔒</div>
+          <h3 class="card-title">Zero Tracking & Local Only</h3>
+          <p class="card-description">
+            We never transmit, log, or monetize your browsing history. Everything executes locally in memory on your computer, with zero third-party telemetry.
+          </p>
+        </div>
+
+        <!-- Feature 6 -->
+        <div class="card">
+          <div class="feature-icon-wrapper">📥</div>
+          <h3 class="card-title">JSON Export & Import</h3>
+          <p class="card-description">
+            Take full ownership of your rules. Export your complete rule configurations to JSON anytime and restore or share them across teams in seconds.
+          </p>
+        </div>
+      </div>
+
+      <!-- Privacy Callout Banner -->
+      <div class="privacy-banner">
+        <div class="privacy-banner-icon">🛡️</div>
+        <div class="privacy-banner-content">
+          <h3>Compliant with Google Chrome Web Store Developer Policies</h3>
+          <p>
+            Smart Tab Cleaner strictly follows the <strong>Single Purpose</strong> policy and operates exclusively on-device. We do not sell user data, inject advertisements, or use external tracking servers.
+          </p>
+          <a href="./privacy.html" class="btn btn-outline btn-sm">
+            Read Complete Privacy Policy →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Accordion Section -->
+  <section class="section" id="faq" style="background-color: #fafafa; border-top: 1px solid var(--border);">
+    <div class="container container-narrow">
+      <div class="section-header">
+        <div class="section-subtitle">Questions & Answers</div>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-lead">Find answers to common questions about permissions, safety, and functionality.</p>
+      </div>
+
+      <div class="faq-accordion">
+        <!-- Item 1 -->
+        <div class="faq-item open">
+          <button class="faq-question">
+            <span>Why does the extension require the "history" and "tabs" permissions?</span>
+            <span class="faq-icon">▾</span>
+          </button>
+          <div class="faq-answer">
+            The <code>tabs</code> permission is required to detect when a newly opened page matches an active rule and close that specific tab. The <code>history</code> permission is used solely when you open the popup to let you view recent pages and conveniently click "Block" without re-opening spam sites. None of this data ever leaves your device.
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Will it accidentally close tabs where I am actively working?</span>
+            <span class="faq-icon">▾</span>
+          </button>
+          <div class="faq-answer">
+            No. The extension only closes tabs that match your explicitly configured rules or blocked domains. Internal browser URLs (like <code>chrome://</code>, <code>about:</code>, or Web Store pages) are completely protected and ignored.
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>What happens if a tab closes by mistake? Can I restore it?</span>
+            <span class="faq-icon">▾</span>
+          </button>
+          <div class="faq-answer">
+            Yes. Any tab closed by the extension is recorded in your standard Chrome browsing history. You can reopen it at any time using your browser's shortcut (<code>Ctrl + Shift + T</code> on Windows/Linux or <code>Cmd + Shift + T</code> on macOS).
+          </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Does Smart Tab Cleaner use external analytics or tracking servers?</span>
+            <span class="faq-icon">▾</span>
+          </button>
+          <div class="faq-answer">
+            No. The extension contains zero tracking scripts, zero Google Analytics, and no telemetry. All rule evaluations happen in your browser's background Service Worker, and syncing is handled directly through Google's native <code>chrome.storage.sync</code> infrastructure.
+          </div>
+        </div>
+
+        <!-- Item 5 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Is Smart Tab Cleaner free and open-source?</span>
+            <span class="faq-icon">▾</span>
+          </button>
+          <div class="faq-answer">
+            Yes, Smart Tab Cleaner is 100% free and open-source under the MIT License. The complete source code is publicly accessible on GitHub.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Box Section -->
+  <section class="section">
+    <div class="container container-narrow">
+      <div class="cta-box">
+        <h2>Reclaim your browser today.</h2>
+        <p>Eliminate annoying pop-up tabs and clutter links automatically with lightweight, zero-tracking tab automation.</p>
+        <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
+          <a href="https://github.com/anhhtz/smart-tab-cleaner-extension/releases" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">
+            Add to Chrome — Free
+          </a>
+          <a href="https://github.com/anhhtz/smart-tab-cleaner-extension" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-lg" style="color: #ffffff; border-color: #3f3f46;">
+            View on GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="brand-link" style="margin-bottom: 8px;">
+            <img src="./icons/icon48.png" alt="Smart Tab Cleaner" class="brand-logo">
+            <span>Smart Tab Cleaner</span>
+          </div>
+          <p class="footer-desc">
+            A minimalist, privacy-first Chrome extension that automatically closes matching tabs and blocks clutter websites with Google Cloud Sync.
+          </p>
+        </div>
+
+        <div class="footer-nav">
+          <div>
+            <div class="footer-column-title">Product</div>
+            <ul class="footer-links">
+              <li><a href="#features" class="footer-link">Features</a></li>
+              <li><a href="#how-it-works" class="footer-link">How It Works</a></li>
+              <li><a href="#preview" class="footer-link">Interactive Demo</a></li>
+              <li><a href="#faq" class="footer-link">FAQ</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <div class="footer-column-title">Legal & Security</div>
+            <ul class="footer-links">
+              <li><a href="./privacy.html" class="footer-link">Privacy Policy</a></li>
+              <li><a href="./terms.html" class="footer-link">Terms of Service</a></li>
+              <li><a href="https://developer.chrome.com/docs/webstore/program-policies/" target="_blank" rel="noopener noreferrer" class="footer-link">Chrome Policy Compliance</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <div class="footer-column-title">Developer</div>
+            <ul class="footer-links">
+              <li><a href="https://github.com/anhhtz/smart-tab-cleaner-extension" target="_blank" rel="noopener noreferrer" class="footer-link">GitHub Repository</a></li>
+              <li><a href="https://github.com/anhhtz/smart-tab-cleaner-extension/releases" target="_blank" rel="noopener noreferrer" class="footer-link">Releases</a></li>
+              <li><a href="mailto:anhht.dev@gmail.com" class="footer-link">Contact Developer</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          © 2026 Smart Tab Cleaner. Maintained by <a href="https://github.com/anhhtz" target="_blank" rel="noopener noreferrer" style="text-decoration: underline;">anhhtz</a>. Released under the MIT License.
+        </div>
+        <div>
+          Contact: <a href="mailto:anhht.dev@gmail.com" style="text-decoration: underline;">anhht.dev@gmail.com</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./js/main.js"></script>
+</body>
+</html>
