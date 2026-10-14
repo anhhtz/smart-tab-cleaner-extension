@@ -1,0 +1,263 @@
+{
+  "extName": {
+    "message": "Smart Tab Cleaner",
+    "description": "Extension name"
+  },
+  "extDescription": {
+    "message": "Automatically close tabs matching rules or quickly block sites from history with Cloud Sync.",
+    "description": "Extension description"
+  },
+  "extActionTitle": {
+    "message": "Smart Tab Cleaner",
+    "description": "Action title"
+  },
+  "syncStatus": {
+    "message": "Synced",
+    "description": "Sync status badge"
+  },
+  "syncTooltip": {
+    "message": "Data is automatically synced across your Google Account",
+    "description": "Tooltip for sync badge"
+  },
+  "tabBrowse": {
+    "message": "🕒 History & Tabs",
+    "description": "Tab title for browsing"
+  },
+  "tabRules": {
+    "message": "📋 Rules",
+    "description": "Tab title for rules"
+  },
+  "tabSettings": {
+    "message": "⚙️ Settings",
+    "description": "Tab title for settings"
+  },
+  "searchPlaceholder": {
+    "message": "Search websites or domain names...",
+    "description": "Search input placeholder"
+  },
+  "subfilterOpenTabs": {
+    "message": "⚡ Open Tabs",
+    "description": "Filter button for open tabs"
+  },
+  "subfilterHistory": {
+    "message": "🕒 Browsing History",
+    "description": "Filter button for browsing history"
+  },
+  "btnBlock": {
+    "message": "⚡ Block",
+    "description": "Block button text"
+  },
+  "btnBlocked": {
+    "message": "✓ Blocked",
+    "description": "Blocked button text"
+  },
+  "loadingTabs": {
+    "message": "Loading tabs...",
+    "description": "Loading open tabs message"
+  },
+  "loadingHistory": {
+    "message": "Loading browsing history...",
+    "description": "Loading history message"
+  },
+  "emptySearch": {
+    "message": "No matching websites found",
+    "description": "Empty search result message"
+  },
+  "cantReadTabs": {
+    "message": "Cannot read tabs: ",
+    "description": "Error reading tabs"
+  },
+  "cantReadHistory": {
+    "message": "Cannot read history: ",
+    "description": "Error reading history"
+  },
+  "testerTitle": {
+    "message": "🧪 Test URL Match",
+    "description": "Tester section title"
+  },
+  "testerPlaceholder": {
+    "message": "Paste a URL (e.g. Zoom, Telegram link...) to test...",
+    "description": "Tester input placeholder"
+  },
+  "testerMatched": {
+    "message": "✅ <strong>Matched rule:</strong> \"$NAME$\"<br>This tab will automatically close after $TIME$.",
+    "description": "Tester match success",
+    "placeholders": {
+      "name": {
+        "content": "$1"
+      },
+      "time": {
+        "content": "$2"
+      }
+    }
+  },
+  "testerUnmatched": {
+    "message": "⚪ This URL <strong>does not match</strong> any active rules.",
+    "description": "Tester no match"
+  },
+  "rulesHeader": {
+    "message": "ACTIVE RULES LIST",
+    "description": "Rules list section header"
+  },
+  "btnManualAdd": {
+    "message": "+ Add Manually",
+    "description": "Manual add rule button"
+  },
+  "emptyRules": {
+    "message": "No rules yet. Browse tabs or history and click Quick Block!",
+    "description": "Empty rules message"
+  },
+  "ruleClosesAfter": {
+    "message": "⏱ Closes after:",
+    "description": "Rule card footer prefix"
+  },
+  "btnDelete": {
+    "message": "Delete",
+    "description": "Delete button text"
+  },
+  "ruleEnabled": {
+    "message": "On",
+    "description": "Toggle enabled label"
+  },
+  "ruleDisabled": {
+    "message": "Off",
+    "description": "Toggle disabled label"
+  },
+  "confirmDeleteRule": {
+    "message": "Are you sure you want to delete this rule?",
+    "description": "Confirmation message before deleting rule"
+  },
+  "modalAddRuleTitle": {
+    "message": "Add New Rule",
+    "description": "Title of manual add modal"
+  },
+  "labelRuleName": {
+    "message": "Rule Name:",
+    "description": "Label for rule name input"
+  },
+  "placeholderRuleName": {
+    "message": "e.g. Pop-up Ads, Shopee Ads...",
+    "description": "Placeholder for rule name input"
+  },
+  "labelRulePattern": {
+    "message": "URL Pattern or Regex:",
+    "description": "Label for rule pattern input"
+  },
+  "placeholderRulePattern": {
+    "message": "e.g. shopee\\.vn/popup.* or zoom\\.us/j/",
+    "description": "Placeholder for rule pattern input"
+  },
+  "hintRulePattern": {
+    "message": "Supports domain keyword or Regular Expression",
+    "description": "Hint for rule pattern"
+  },
+  "labelRuleTimeout": {
+    "message": "Timeout Delay:",
+    "description": "Label for timeout input"
+  },
+  "btnCancel": {
+    "message": "Cancel",
+    "description": "Cancel button text"
+  },
+  "btnSaveRule": {
+    "message": "Save Rule",
+    "description": "Save rule button text"
+  },
+  "validationPatternRequired": {
+    "message": "Please enter a URL pattern or keyword.",
+    "description": "Validation error when pattern is empty"
+  },
+  "settingDefaultTimeoutLabel": {
+    "message": "Default Countdown Timeout",
+    "description": "Default timeout setting label"
+  },
+  "settingDefaultTimeoutDesc": {
+    "message": "Countdown milliseconds before automatically closing matching tabs (e.g. 500ms)",
+    "description": "Default timeout setting description"
+  },
+  "settingCloseOnBlockLabel": {
+    "message": "Close Tab Immediately on Block",
+    "description": "Close immediately setting label"
+  },
+  "settingCloseOnBlockDesc": {
+    "message": "Automatically close the open tab right after you click Quick Block",
+    "description": "Close immediately setting description"
+  },
+  "settingStatsLabel": {
+    "message": "Activity Statistics",
+    "description": "Stats setting label"
+  },
+  "settingStatsDesc": {
+    "message": "Total number of tabs automatically cleaned up",
+    "description": "Stats setting description"
+  },
+  "settingBackupLabel": {
+    "message": "Backup & Manual Sync",
+    "description": "Backup setting label"
+  },
+  "btnExport": {
+    "message": "📥 Export JSON",
+    "description": "Export JSON button"
+  },
+  "btnImport": {
+    "message": "📤 Import JSON",
+    "description": "Import JSON button"
+  },
+  "invalidJson": {
+    "message": "Invalid JSON format (missing 'groups' array).",
+    "description": "Alert for invalid JSON import"
+  },
+  "fileReadError": {
+    "message": "File reading error: ",
+    "description": "Alert for file reading error"
+  },
+  "toastRuleAdded": {
+    "message": "Added rule for $NAME$ (Closes after $TIME$) & Synced ☁️",
+    "description": "Toast when rule is added",
+    "placeholders": {
+      "name": {
+        "content": "$1"
+      },
+      "time": {
+        "content": "$2"
+      }
+    }
+  },
+  "toastRuleDeleted": {
+    "message": "Rule deleted & Synced ☁️",
+    "description": "Toast when rule is deleted"
+  },
+  "toastRuleEnabled": {
+    "message": "Rule enabled ☁️",
+    "description": "Toast when rule is enabled"
+  },
+  "toastRuleDisabled": {
+    "message": "Rule paused ☁️",
+    "description": "Toast when rule is disabled"
+  },
+  "toastTimeoutSaved": {
+    "message": "Default timeout saved: $MS$ms ☁️",
+    "description": "Toast when timeout setting is saved",
+    "placeholders": {
+      "ms": {
+        "content": "$1"
+      }
+    }
+  },
+  "toastSettingsSaved": {
+    "message": "Settings updated ☁️",
+    "description": "Toast when settings are saved"
+  },
+  "toastExportSuccess": {
+    "message": "Downloaded JSON configuration file",
+    "description": "Toast when JSON export finishes"
+  },
+  "toastImportSuccess": {
+    "message": "Data imported successfully & Synced ☁️",
+    "description": "Toast when JSON import succeeds"
+  },
+  "toastError": {
+    "message": "An error occurred: ",
+    "description": "Toast for generic error"
+  }
+}

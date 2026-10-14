@@ -45,10 +45,10 @@ chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
         activeTimers.delete(tabId);
       }
 
-      // Xác định thời gian chờ
+      // Xác định thời gian chờ (mili-giây)
       const delayMs = typeof matchedGroup.closeTimeout === 'number'
         ? matchedGroup.closeTimeout
-        : (settings.defaultTimeout * 1000);
+        : (settings.defaultTimeout || 500);
 
       // Kích hoạt bộ đếm đóng tab
       const timerId = setTimeout(async () => {

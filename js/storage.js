@@ -10,7 +10,7 @@ const STORAGE_KEYS = {
 };
 
 const DEFAULT_SETTINGS = {
-  defaultTimeout: 3, // số giây mặc định (3 giây)
+  defaultTimeout: 500, // mili-giây mặc định (500ms, rất tốt để dập tab quảng cáo tức thì)
   closeCurrentOnBlock: false
 };
 
@@ -184,10 +184,9 @@ const StorageService = {
   /**
    * Thêm rule nhanh từ một URL
    */
-  async addQuickRule(url, title, customTimeoutSeconds = null) {
+  async addQuickRule(url, title, customTimeoutMs = null) {
     const settings = await this.getSettings();
-    const timeoutSeconds = customTimeoutSeconds !== null ? customTimeoutSeconds : settings.defaultTimeout;
-    const timeoutMs = Math.max(0, Number(timeoutSeconds) * 1000);
+    const timeoutMs = Math.max(0, Number(customTimeoutMs !== null ? customTimeoutMs : (settings.defaultTimeout || 500)));
 
     const patternInfo = this.extractSmartPattern(url);
     const rules = await this.getRules();

@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="vi">
+<html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Smart Tab Cleaner</title>
+  <title data-i18n="extName">Smart Tab Cleaner</title>
   <link rel="stylesheet" href="css/popup.css">
 </head>
 <body>
@@ -11,23 +11,23 @@
     <div class="header-top">
       <div class="brand">
         <img src="icons/icon48.png" alt="Logo">
-        <span>Smart Tab Cleaner</span>
+        <span data-i18n="extName">Smart Tab Cleaner</span>
       </div>
-      <div class="sync-badge" id="syncStatus" title="Dữ liệu được tự động đồng bộ qua tài khoản Google">
-        ☁️ <span>Đã đồng bộ</span>
+      <div class="sync-badge" id="syncStatus" data-i18n-title="syncTooltip">
+        ☁️ <span data-i18n="syncStatus">Đã đồng bộ</span>
       </div>
     </div>
 
     <!-- Navigation Tabs -->
     <nav class="nav-tabs-custom">
       <button class="nav-tab-btn active" data-tab="browseTab">
-        🕒 Lịch sử & Tab
+        <span data-i18n="tabBrowse">🕒 Lịch sử & Tab</span>
       </button>
       <button class="nav-tab-btn" data-tab="rulesTab">
-        📋 Quy tắc (<span id="rulesCountBadge">0</span>)
+        <span data-i18n="tabRules">📋 Quy tắc</span> (<span id="rulesCountBadge">0</span>)
       </button>
       <button class="nav-tab-btn" data-tab="settingsTab">
-        ⚙️ Cài đặt
+        <span data-i18n="tabSettings">⚙️ Cài đặt</span>
       </button>
     </nav>
   </header>
@@ -37,11 +37,15 @@
     <div class="toolbar">
       <div class="search-input-wrapper">
         <span class="search-icon">🔍</span>
-        <input type="text" id="searchInput" class="search-input" placeholder="Tìm kiếm trang web hoặc tên miền...">
+        <input type="text" id="searchInput" class="search-input" data-i18n-placeholder="searchPlaceholder" placeholder="Tìm kiếm trang web hoặc tên miền...">
       </div>
       <div class="sub-filter-group">
-        <button class="sub-filter-btn active" id="btnFilterOpenTabs">⚡ Tab đang mở (<span id="openTabsCount">0</span>)</button>
-        <button class="sub-filter-btn" id="btnFilterHistory">🕒 Lịch sử duyệt web</button>
+        <button class="sub-filter-btn active" id="btnFilterOpenTabs">
+          <span data-i18n="subfilterOpenTabs">⚡ Tab đang mở</span> (<span id="openTabsCount">0</span>)
+        </button>
+        <button class="sub-filter-btn" id="btnFilterHistory">
+          <span data-i18n="subfilterHistory">🕒 Lịch sử duyệt web</span>
+        </button>
       </div>
     </div>
 
@@ -56,16 +60,16 @@
       <!-- Công cụ Test Regex trực tiếp cho người dùng -->
       <div class="tester-box">
         <div class="tester-title">
-          <span>🧪 Kiểm tra thử link (Test URL match)</span>
+          <span data-i18n="testerTitle">🧪 Kiểm tra thử link (Test URL match)</span>
         </div>
-        <input type="text" id="testerInput" class="tester-input" placeholder="Dán link (ví dụ link Zoom, Telegram...) để thử...">
+        <input type="text" id="testerInput" class="tester-input" data-i18n-placeholder="testerPlaceholder" placeholder="Dán link (ví dụ link Zoom, Telegram...) để thử...">
         <div id="testerResult" class="tester-result"></div>
       </div>
 
       <!-- Danh sách quy tắc đã lưu -->
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-        <span style="font-weight: 600; font-size: 12px; color: var(--text-muted);">DANH SÁCH QUY TẮC ĐANG BẬT</span>
-        <button id="btnManualAddRule" class="btn-sm-action">+ Thêm thủ công</button>
+        <span style="font-weight: 600; font-size: 12px; color: var(--text-muted);" data-i18n="rulesHeader">DANH SÁCH QUY TẮC ĐANG BẬT</span>
+        <button id="btnManualAddRule" class="btn-sm-action" data-i18n="btnManualAdd">+ Thêm thủ công</button>
       </div>
 
       <div id="rulesListContainer">
@@ -80,11 +84,14 @@
       <div class="settings-section">
         <div class="settings-row">
           <div>
-            <div class="settings-label">Thời gian chờ mặc định</div>
-            <div class="settings-desc">Thời gian đếm ngược trước khi tự động đóng tab (giây)</div>
+            <div class="settings-label" data-i18n="settingDefaultTimeoutLabel">Thời gian chờ mặc định</div>
+            <div class="settings-desc" data-i18n="settingDefaultTimeoutDesc">Thời gian đếm ngược trước khi tự động đóng tab (mili-giây, mặc định: 500ms)</div>
           </div>
           <div>
-            <input type="number" id="settingDefaultTimeout" class="settings-input" min="0" max="3600" value="3">
+            <div class="input-with-unit" style="width: 100px;">
+              <input type="number" id="settingDefaultTimeout" class="settings-input form-control" min="0" max="60000" step="50" value="500">
+              <span class="unit-badge">ms</span>
+            </div>
           </div>
         </div>
       </div>
@@ -92,8 +99,8 @@
       <div class="settings-section">
         <div class="settings-row">
           <div>
-            <div class="settings-label">Đóng tab ngay khi Block</div>
-            <div class="settings-desc">Tự động đóng tab đang mở khi bạn vừa bấm Block nhanh</div>
+            <div class="settings-label" data-i18n="settingCloseOnBlockLabel">Đóng tab ngay khi Block</div>
+            <div class="settings-desc" data-i18n="settingCloseOnBlockDesc">Tự động đóng tab đang mở khi bạn vừa bấm Block nhanh</div>
           </div>
           <div>
             <input type="checkbox" id="settingCloseOnBlock">
@@ -104,8 +111,8 @@
       <div class="settings-section">
         <div class="settings-row">
           <div>
-            <div class="settings-label">Thống kê hoạt động</div>
-            <div class="settings-desc">Số lượng tab đã được tự động dọn dẹp</div>
+            <div class="settings-label" data-i18n="settingStatsLabel">Thống kê hoạt động</div>
+            <div class="settings-desc" data-i18n="settingStatsDesc">Số lượng tab đã được tự động dọn dẹp</div>
           </div>
           <div style="font-size: 15px; font-weight: 700; color: var(--primary);" id="statClosedCount">
             0
@@ -114,15 +121,53 @@
       </div>
 
       <div class="settings-section">
-        <div class="settings-label" style="margin-bottom: 8px;">Sao lưu & Đồng bộ thủ công</div>
+        <div class="settings-label" style="margin-bottom: 8px;" data-i18n="settingBackupLabel">Sao lưu & Đồng bộ thủ công</div>
         <div style="display: flex; gap: 8px;">
-          <button id="btnExportRules" class="btn-sm-action" style="flex: 1;">📥 Xuất JSON (Export)</button>
-          <button id="btnImportRules" class="btn-sm-action" style="flex: 1;">📤 Nhập JSON (Import)</button>
+          <button id="btnExportRules" class="btn-sm-action" style="flex: 1;" data-i18n="btnExport">📥 Xuất JSON (Export)</button>
+          <button id="btnImportRules" class="btn-sm-action" style="flex: 1;" data-i18n="btnImport">📤 Nhập JSON (Import)</button>
         </div>
         <input type="file" id="importFileInput" accept=".json" style="display: none;">
       </div>
     </div>
   </section>
+
+  <!-- Modal Thêm quy tắc thủ công (Thay thế prompt cũ) -->
+  <div id="manualRuleModal" class="modal-overlay" style="display: none;">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title" data-i18n="modalAddRuleTitle">Thêm quy tắc mới</h3>
+        <button id="btnCloseModal" class="modal-close-btn" type="button">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label class="form-label" data-i18n="labelRuleName">Tên quy tắc:</label>
+          <input type="text" id="modalRuleName" class="form-control" data-i18n-placeholder="placeholderRuleName" placeholder="Ví dụ: Shopee Ads, Pop-up quảng cáo...">
+        </div>
+        <div class="form-group">
+          <label class="form-label" data-i18n="labelRulePattern">Đường dẫn URL hoặc Regex:</label>
+          <input type="text" id="modalRulePattern" class="form-control" data-i18n-placeholder="placeholderRulePattern" placeholder="Ví dụ: shopee\.vn/popup.* hoặc zoom\.us/j/">
+          <div class="form-hint" data-i18n="hintRulePattern">Hỗ trợ tên miền, từ khóa hoặc Regular Expression</div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" data-i18n="labelRuleTimeout">Thời gian chờ (mili-giây):</label>
+          <div class="input-with-unit">
+            <input type="number" id="modalRuleTimeout" class="form-control" min="0" max="60000" step="50" value="500">
+            <span class="unit-badge">ms</span>
+          </div>
+          <div class="quick-timeout-pills" id="modalTimeoutPills">
+            <button type="button" class="timeout-pill" data-ms="0">0ms (Ngay)</button>
+            <button type="button" class="timeout-pill active" data-ms="500">500ms</button>
+            <button type="button" class="timeout-pill" data-ms="1000">1s</button>
+            <button type="button" class="timeout-pill" data-ms="3000">3s</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button id="btnCancelModal" class="btn-secondary" type="button" data-i18n="btnCancel">Hủy</button>
+        <button id="btnSaveModal" class="btn-primary" type="button" data-i18n="btnSaveRule">Lưu quy tắc</button>
+      </div>
+    </div>
+  </div>
 
   <!-- Toast notification -->
   <div id="toastNotice" class="toast-notice"></div>

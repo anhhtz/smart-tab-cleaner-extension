@@ -1,0 +1,263 @@
+{
+  "extName": {
+    "message": "Smart Tab Cleaner",
+    "description": "Tên extension"
+  },
+  "extDescription": {
+    "message": "Tự động đóng tab thông minh theo quy tắc hoặc block nhanh từ lịch sử duyệt web với Cloud Sync.",
+    "description": "Mô tả extension"
+  },
+  "extActionTitle": {
+    "message": "Smart Tab Cleaner",
+    "description": "Tiêu đề action"
+  },
+  "syncStatus": {
+    "message": "Đã đồng bộ",
+    "description": "Huy hiệu đồng bộ"
+  },
+  "syncTooltip": {
+    "message": "Dữ liệu được tự động đồng bộ qua tài khoản Google",
+    "description": "Tooltip cho huy hiệu đồng bộ"
+  },
+  "tabBrowse": {
+    "message": "🕒 Lịch sử & Tab",
+    "description": "Tiêu đề tab duyệt web"
+  },
+  "tabRules": {
+    "message": "📋 Quy tắc",
+    "description": "Tiêu đề tab quy tắc"
+  },
+  "tabSettings": {
+    "message": "⚙️ Cài đặt",
+    "description": "Tiêu đề tab cài đặt"
+  },
+  "searchPlaceholder": {
+    "message": "Tìm kiếm trang web hoặc tên miền...",
+    "description": "Placeholder ô tìm kiếm"
+  },
+  "subfilterOpenTabs": {
+    "message": "⚡ Tab đang mở",
+    "description": "Bộ lọc tab đang mở"
+  },
+  "subfilterHistory": {
+    "message": "🕒 Lịch sử duyệt web",
+    "description": "Bộ lọc lịch sử"
+  },
+  "btnBlock": {
+    "message": "⚡ Block",
+    "description": "Chữ trên nút block"
+  },
+  "btnBlocked": {
+    "message": "✓ Đã chặn",
+    "description": "Chữ trên nút khi đã chặn"
+  },
+  "loadingTabs": {
+    "message": "Đang tải các tab...",
+    "description": "Thông báo đang tải tab"
+  },
+  "loadingHistory": {
+    "message": "Đang tải lịch sử duyệt web...",
+    "description": "Thông báo đang tải lịch sử"
+  },
+  "emptySearch": {
+    "message": "Không tìm thấy trang web nào phù hợp",
+    "description": "Thông báo tìm kiếm trống"
+  },
+  "cantReadTabs": {
+    "message": "Không thể đọc tab: ",
+    "description": "Lỗi đọc tab"
+  },
+  "cantReadHistory": {
+    "message": "Không thể đọc lịch sử: ",
+    "description": "Lỗi đọc lịch sử"
+  },
+  "testerTitle": {
+    "message": "🧪 Kiểm tra thử link (Test URL match)",
+    "description": "Tiêu đề khu vực test link"
+  },
+  "testerPlaceholder": {
+    "message": "Dán link (ví dụ link Zoom, Telegram...) để thử...",
+    "description": "Placeholder ô nhập link thử nghiệm"
+  },
+  "testerMatched": {
+    "message": "✅ <strong>Khớp quy tắc:</strong> \"$NAME$\"<br>Tab này sẽ tự động đóng sau $TIME$.",
+    "description": "Thông báo khớp link",
+    "placeholders": {
+      "name": {
+        "content": "$1"
+      },
+      "time": {
+        "content": "$2"
+      }
+    }
+  },
+  "testerUnmatched": {
+    "message": "⚪ Link này <strong>không khớp</strong> với bất kỳ quy tắc nào đang bật.",
+    "description": "Thông báo không khớp link"
+  },
+  "rulesHeader": {
+    "message": "DANH SÁCH QUY TẮC ĐANG BẬT",
+    "description": "Tiêu đề danh sách rules"
+  },
+  "btnManualAdd": {
+    "message": "+ Thêm thủ công",
+    "description": "Nút thêm quy tắc thủ công"
+  },
+  "emptyRules": {
+    "message": "Chưa có quy tắc nào. Hãy duyệt qua tab hoặc lịch sử để bấm Block nhanh!",
+    "description": "Thông báo chưa có rule"
+  },
+  "ruleClosesAfter": {
+    "message": "⏱ Tự đóng sau:",
+    "description": "Tiền tố thời gian đóng"
+  },
+  "btnDelete": {
+    "message": "Xóa",
+    "description": "Nút xóa rule"
+  },
+  "ruleEnabled": {
+    "message": "Bật",
+    "description": "Nhãn bật"
+  },
+  "ruleDisabled": {
+    "message": "Tắt",
+    "description": "Nhãn tắt"
+  },
+  "confirmDeleteRule": {
+    "message": "Bạn có chắc muốn xóa quy tắc này?",
+    "description": "Xác nhận xóa rule"
+  },
+  "modalAddRuleTitle": {
+    "message": "Thêm quy tắc mới",
+    "description": "Tiêu đề modal thêm quy tắc"
+  },
+  "labelRuleName": {
+    "message": "Tên quy tắc:",
+    "description": "Nhãn tên quy tắc"
+  },
+  "placeholderRuleName": {
+    "message": "Ví dụ: Shopee Ads, Pop-up quảng cáo...",
+    "description": "Placeholder ô nhập tên quy tắc"
+  },
+  "labelRulePattern": {
+    "message": "Đường dẫn URL hoặc Regex:",
+    "description": "Nhãn ô nhập pattern"
+  },
+  "placeholderRulePattern": {
+    "message": "Ví dụ: shopee\\.vn/popup.* hoặc zoom\\.us/j/",
+    "description": "Placeholder ô nhập pattern"
+  },
+  "hintRulePattern": {
+    "message": "Hỗ trợ tên miền, từ khóa hoặc Regular Expression",
+    "description": "Gợi ý định dạng pattern"
+  },
+  "labelRuleTimeout": {
+    "message": "Thời gian chờ (mili-giây):",
+    "description": "Nhãn thời gian chờ"
+  },
+  "btnCancel": {
+    "message": "Hủy",
+    "description": "Nút hủy modal"
+  },
+  "btnSaveRule": {
+    "message": "Lưu quy tắc",
+    "description": "Nút lưu quy tắc"
+  },
+  "validationPatternRequired": {
+    "message": "Vui lòng nhập đường dẫn URL hoặc từ khóa regex.",
+    "description": "Lỗi khi để trống pattern"
+  },
+  "settingDefaultTimeoutLabel": {
+    "message": "Thời gian chờ mặc định",
+    "description": "Nhãn cài đặt timeout mặc định"
+  },
+  "settingDefaultTimeoutDesc": {
+    "message": "Thời gian đếm ngược trước khi tự động đóng tab (mili-giây, mặc định: 500ms)",
+    "description": "Mô tả cài đặt timeout mặc định"
+  },
+  "settingCloseOnBlockLabel": {
+    "message": "Đóng tab ngay khi Block",
+    "description": "Nhãn cài đặt đóng ngay"
+  },
+  "settingCloseOnBlockDesc": {
+    "message": "Tự động đóng tab đang mở khi bạn vừa bấm Block nhanh",
+    "description": "Mô tả cài đặt đóng ngay"
+  },
+  "settingStatsLabel": {
+    "message": "Thống kê hoạt động",
+    "description": "Nhãn thống kê"
+  },
+  "settingStatsDesc": {
+    "message": "Số lượng tab đã được tự động dọn dẹp",
+    "description": "Mô tả thống kê"
+  },
+  "settingBackupLabel": {
+    "message": "Sao lưu & Đồng bộ thủ công",
+    "description": "Nhãn sao lưu"
+  },
+  "btnExport": {
+    "message": "📥 Xuất JSON (Export)",
+    "description": "Nút xuất JSON"
+  },
+  "btnImport": {
+    "message": "📤 Nhập JSON (Import)",
+    "description": "Nút nhập JSON"
+  },
+  "invalidJson": {
+    "message": "Định dạng file JSON không hợp lệ (cần có mảng 'groups').",
+    "description": "Thông báo JSON lỗi"
+  },
+  "fileReadError": {
+    "message": "Lỗi đọc file: ",
+    "description": "Thông báo lỗi đọc file"
+  },
+  "toastRuleAdded": {
+    "message": "Đã thêm quy tắc cho $NAME$ (Tự đóng sau $TIME$) & Đã đồng bộ ☁️",
+    "description": "Toast khi thêm rule",
+    "placeholders": {
+      "name": {
+        "content": "$1"
+      },
+      "time": {
+        "content": "$2"
+      }
+    }
+  },
+  "toastRuleDeleted": {
+    "message": "Đã xóa quy tắc & Đã đồng bộ ☁️",
+    "description": "Toast khi xóa rule"
+  },
+  "toastRuleEnabled": {
+    "message": "Đã bật quy tắc ☁️",
+    "description": "Toast khi bật rule"
+  },
+  "toastRuleDisabled": {
+    "message": "Đã tạm tắt quy tắc ☁️",
+    "description": "Toast khi tắt rule"
+  },
+  "toastTimeoutSaved": {
+    "message": "Đã lưu thời gian chờ mặc định: $MS$ms ☁️",
+    "description": "Toast khi lưu timeout",
+    "placeholders": {
+      "ms": {
+        "content": "$1"
+      }
+    }
+  },
+  "toastSettingsSaved": {
+    "message": "Đã cập nhật cài đặt ☁️",
+    "description": "Toast khi lưu cài đặt"
+  },
+  "toastExportSuccess": {
+    "message": "Đã tải xuống file cấu hình JSON",
+    "description": "Toast khi xuất JSON xong"
+  },
+  "toastImportSuccess": {
+    "message": "Nhập dữ liệu thành công & Đã đồng bộ ☁️",
+    "description": "Toast khi nhập JSON xong"
+  },
+  "toastError": {
+    "message": "Có lỗi xảy ra: ",
+    "description": "Toast lỗi chung"
+  }
+}

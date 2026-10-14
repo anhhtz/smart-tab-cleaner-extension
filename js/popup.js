@@ -1,6 +1,6 @@
 /**
- * Popup UI Logic - Tabs Auto Close & Quick Blocker
- * Quản lý giao diện: Duyệt tab/Lịch sử, Quick Block, Test Regex, Đồng bộ & Cài đặt
+ * Popup UI Logic - Smart Tab Cleaner
+ * Hỗ trợ Đa ngôn ngữ (i18n), Đơn vị mili-giây (ms), và Modal thêm quy tắc thủ công
  */
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -31,20 +31,66 @@ document.addEventListener('DOMContentLoaded', async () => {
   const importFileInput = document.getElementById('importFileInput');
   const toastNotice = document.getElementById('toastNotice');
 
+  // Modal Elements
+  const manualRuleModal = document.getElementById('manualRuleModal');
+  const btnCloseModal = document.getElementById('btnCloseModal');
+  const btnCancelModal = document.getElementById('btnCancelModal');
+  const btnSaveModal = document.getElementById('btnSaveModal');
+  const modalRuleName = document.getElementById('modalRuleName');
+  const modalRulePattern = document.getElementById('modalRulePattern');
+  const modalRuleTimeout = document.getElementById('modalRuleTimeout');
+  const modalTimeoutPills = document.querySelectorAll('#modalTimeoutPills .timeout-pill');
+
   // State
   let currentBrowseMode = 'openTabs'; // 'openTabs' | 'history'
   let cachedRules = { groups: [] };
-  let cachedSettings = { defaultTimeout: 3, closeCurrentOnBlock: false };
+  let cachedSettings = { defaultTimeout: 500, closeCurrentOnBlock: false };
   let openTabsList = [];
   let historyList = [];
 
+  // ====================== 0. i18n & Utility Helpers ======================
+  function t(key, substitutions = []) {
+    if (typeof chrome !== 'undefined' && chrome.i18n && chrome.i18n.getMessage) {
+      const msg = chrome.i18n.getMessage(key, substitutions);
+      if (msg) return msg;
+    }
+    return key;
+  }
+
+  function localizeHtml() {
+    document.querySelectorAll('[data-i18n]').forEach((el) => {
+      const key = el.getAttribute('data-i18n');
+      const msg = t(key);
+      if (msg) el.textContent = msg;
+    });
+    document.querySelectorAll('[data-i18n-placeholder]').forEach((el) => {
+      const key = el.getAttribute('data-i18n-placeholder');
+      const msg = t(key);
+      if (msg) el.placeholder = msg;
+    });
+    document.querySelectorAll('[data-i18n-title]').forEach((el) => {
+      const key = el.getAttribute('data-i18n-title');
+      const msg = t(key);
+      if (msg) el.title = msg;
+    });
+  }
+
+  function formatTimeout(ms) {
+    const num = Number(ms) || 0;
+    if (num < 1000) return `${num}ms`;
+    if (num % 1000 === 0) return `${num / 1000}s (${num}ms)`;
+    return `${(num / 1000).toFixed(1)}s (${num}ms)`;
+  }
+
   // ====================== 1. Khởi tạo & Tab Navigation ======================
   async function init() {
+    localizeHtml();
+
     cachedSettings = await StorageService.getSettings();
     cachedRules = await StorageService.getRules();
 
-    // Cập nhật giá trị vào Settings form
-    settingDefaultTimeout.value = cachedSettings.defaultTimeout || 3;
+    // Cập nhật giá trị vào Settings form (mili-giây)
+    settingDefaultTimeout.value = cachedSettings.defaultTimeout || 500;
     settingCloseOnBlock.checked = Boolean(cachedSettings.closeCurrentOnBlock);
 
     // Cập nhật thống kê
@@ -118,20 +164,20 @@ document.addEventListener('DOMContentLoaded', async () => {
   // ====================== 2. Lấy dữ liệu Open Tabs & History ======================
   async function loadOpenTabs() {
     try {
-      siteListContainer.innerHTML = '<div class="empty-state">Đang tải các tab...</div>';
+      siteListContainer.innerHTML = `<div class="empty-state">${escapeHtml(t('loadingTabs'))}</div>`;
       const tabs = await chrome.tabs.query({});
       // Lọc bỏ trang internal
       openTabsList = tabs.filter((t) => isValidWebUrl(t.url));
       openTabsCount.textContent = openTabsList.length;
       renderSiteList(filterItems(openTabsList, searchInput.value));
     } catch (e) {
-      siteListContainer.innerHTML = `<div class="empty-state">Không thể đọc tab: ${e.message}</div>`;
+      siteListContainer.innerHTML = `<div class="empty-state">${escapeHtml(t('cantReadTabs') + e.message)}</div>`;
     }
   }
 
   async function loadHistory(query = '') {
     try {
-      siteListContainer.innerHTML = '<div class="empty-state">Đang tải lịch sử duyệt web...</div>';
+      siteListContainer.innerHTML = `<div class="empty-state">${escapeHtml(t('loadingHistory'))}</div>`;
       const results = await chrome.history.search({
         text: query,
         maxResults: 60,
@@ -150,7 +196,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
       renderSiteList(historyList);
     } catch (e) {
-      siteListContainer.innerHTML = `<div class="empty-state">Không thể đọc lịch sử: ${e.message}</div>`;
+      siteListContainer.innerHTML = `<div class="empty-state">${escapeHtml(t('cantReadHistory') + e.message)}</div>`;
     }
   }
 
@@ -165,7 +211,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       siteListContainer.innerHTML = `
         <div class="empty-state">
           <div class="empty-state-icon">🌐</div>
-          <div>Không tìm thấy trang web nào phù hợp</div>
+          <div>${escapeHtml(t('emptySearch'))}</div>
         </div>
       `;
       return;
@@ -198,13 +244,13 @@ document.addEventListener('DOMContentLoaded', async () => {
         <div>
           ${
             isAlreadyBlocked
-              ? `<button class="btn-quick-block blocked" disabled>✓ Đã chặn</button>`
-              : `<button class="btn-quick-block" data-url="${escapeHtml(item.url)}" data-title="${escapeHtml(item.title || '')}" ${item.id ? `data-tabid="${item.id}"` : ''}>⚡ Block</button>`
+              ? `<button class="btn-quick-block blocked" disabled>${escapeHtml(t('btnBlocked'))}</button>`
+              : `<button class="btn-quick-block" data-url="${escapeHtml(item.url)}" data-title="${escapeHtml(item.title || '')}" ${item.id ? `data-tabid="${item.id}"` : ''}>${escapeHtml(t('btnBlock'))}</button>`
           }
         </div>
       `;
 
-      // Xử lý fallback icon an toàn qua addEventListener (tuân thủ Chrome CSP)
+      // Fallback icon khi không load được
       const faviconImg = el.querySelector('.site-favicon');
       if (faviconImg) {
         faviconImg.addEventListener('error', () => {
@@ -217,7 +263,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // Gắn sự kiện click Block
     siteListContainer.querySelectorAll('.btn-quick-block:not(.blocked)').forEach((btn) => {
-      btn.addEventListener('click', async (e) => {
+      btn.addEventListener('click', async () => {
         const url = btn.getAttribute('data-url');
         const title = btn.getAttribute('data-title');
         const tabId = btn.getAttribute('data-tabid');
@@ -238,9 +284,9 @@ document.addEventListener('DOMContentLoaded', async () => {
       updateRulesCountBadge();
 
       btnElement.className = 'btn-quick-block blocked';
-      btnElement.textContent = '✓ Đã chặn';
+      btnElement.textContent = t('btnBlocked');
 
-      showToast(`Đã thêm quy tắc cho ${newRule.name} (Tự đóng sau ${newRule.closeTimeout / 1000}s) & Đã đồng bộ ☁️`);
+      showToast(t('toastRuleAdded', [newRule.name, formatTimeout(newRule.closeTimeout)]));
 
       // Tự đóng tab nếu bật tuỳ chọn closeCurrentOnBlock
       if (cachedSettings.closeCurrentOnBlock && tabId) {
@@ -251,8 +297,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     } catch (err) {
       console.error(err);
       btnElement.disabled = false;
-      btnElement.textContent = '⚡ Block';
-      showToast('Có lỗi xảy ra: ' + err.message);
+      btnElement.textContent = t('btnBlock');
+      showToast(t('toastError') + err.message);
     }
   }
 
@@ -262,7 +308,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       rulesListContainer.innerHTML = `
         <div class="empty-state">
           <div class="empty-state-icon">📋</div>
-          <div>Chưa có quy tắc nào. Hãy duyệt qua tab hoặc lịch sử để bấm Block nhanh!</div>
+          <div>${escapeHtml(t('emptyRules'))}</div>
         </div>
       `;
       return;
@@ -273,7 +319,6 @@ document.addEventListener('DOMContentLoaded', async () => {
       const card = document.createElement('div');
       card.className = 'rule-card';
       const isEnabled = group.enabled !== false;
-      const timeoutSec = (group.closeTimeout || 0) / 1000;
 
       card.innerHTML = `
         <div class="rule-header">
@@ -281,14 +326,14 @@ document.addEventListener('DOMContentLoaded', async () => {
           <div class="rule-actions">
             <label style="cursor: pointer; display: flex; align-items: center; gap: 4px; font-size: 11px;">
               <input type="checkbox" class="rule-toggle" data-id="${group.id}" ${isEnabled ? 'checked' : ''}>
-              ${isEnabled ? 'Bật' : 'Tắt'}
+              ${isEnabled ? escapeHtml(t('ruleEnabled')) : escapeHtml(t('ruleDisabled'))}
             </label>
-            <button class="btn-sm-action btn-delete-rule" data-id="${group.id}" style="color: var(--danger);">Xóa</button>
+            <button class="btn-sm-action btn-delete-rule" data-id="${group.id}" style="color: var(--danger);">${escapeHtml(t('btnDelete'))}</button>
           </div>
         </div>
-        <div class="rule-pattern" title="Cú pháp Regex">${escapeHtml(group.matches.join(' | '))}</div>
+        <div class="rule-pattern" title="Regex pattern">${escapeHtml(group.matches.join(' | '))}</div>
         <div class="rule-footer">
-          <span>⏱ Tự đóng sau: <strong>${timeoutSec}s</strong></span>
+          <span>${escapeHtml(t('ruleClosesAfter'))} <strong>${formatTimeout(group.closeTimeout)}</strong></span>
         </div>
       `;
 
@@ -302,7 +347,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         await StorageService.toggleRule(id, chk.checked);
         cachedRules = await StorageService.getRules();
         renderRulesList();
-        showToast(chk.checked ? 'Đã bật quy tắc' : 'Đã tạm tắt quy tắc');
+        showToast(chk.checked ? t('toastRuleEnabled') : t('toastRuleDisabled'));
       });
     });
 
@@ -310,12 +355,12 @@ document.addEventListener('DOMContentLoaded', async () => {
     rulesListContainer.querySelectorAll('.btn-delete-rule').forEach((btn) => {
       btn.addEventListener('click', async () => {
         const id = btn.getAttribute('data-id');
-        if (confirm('Bạn có chắc muốn xóa quy tắc này?')) {
+        if (confirm(t('confirmDeleteRule'))) {
           await StorageService.removeRule(id);
           cachedRules = await StorageService.getRules();
           updateRulesCountBadge();
           renderRulesList();
-          showToast('Đã xóa quy tắc & Đã đồng bộ ☁️');
+          showToast(t('toastRuleDeleted'));
         }
       });
     });
@@ -332,24 +377,94 @@ document.addEventListener('DOMContentLoaded', async () => {
     const matched = StorageService.findMatchedGroup(testUrl, cachedRules.groups);
     if (matched) {
       testerResult.className = 'tester-result matched';
-      testerResult.innerHTML = `✅ <strong>Khớp quy tắc:</strong> "${escapeHtml(matched.name)}"<br>Tab này sẽ tự động đóng sau ${(matched.closeTimeout || 3000) / 1000} giây.`;
+      testerResult.innerHTML = t('testerMatched', [escapeHtml(matched.name), formatTimeout(matched.closeTimeout || 500)]);
     } else {
       testerResult.className = 'tester-result unmatched';
-      testerResult.innerHTML = `⚪ Link này <strong>không khớp</strong> với bất kỳ quy tắc nào đang bật.`;
+      testerResult.innerHTML = t('testerUnmatched');
     }
   });
 
-  // Nút thêm quy tắc thủ công nếu muốn
-  btnManualAddRule.addEventListener('click', async () => {
-    const pattern = prompt('Nhập URL hoặc Regex cần tự động đóng (ví dụ: zoom.us/j/ hoặc meet.google.com):');
-    if (!pattern) return;
+  // ====================== 4. Modal Thêm quy tắc thủ công ======================
+  function openManualRuleModal() {
+    modalRuleName.value = '';
+    modalRulePattern.value = '';
+    modalRuleTimeout.value = cachedSettings.defaultTimeout || 500;
+    updatePillSelection(modalRuleTimeout.value);
+    manualRuleModal.style.display = 'flex';
+    setTimeout(() => modalRulePattern.focus(), 50);
+  }
 
-    const name = prompt('Tên gợi nhớ quy tắc:', pattern) || pattern;
-    const timeoutSec = prompt('Thời gian chờ (giây):', cachedSettings.defaultTimeout || 3);
-    const timeoutMs = (Number(timeoutSec) || 3) * 1000;
+  function closeManualRuleModal() {
+    manualRuleModal.style.display = 'none';
+  }
+
+  function updatePillSelection(val) {
+    modalTimeoutPills.forEach((pill) => {
+      if (pill.getAttribute('data-ms') === String(val)) {
+        pill.classList.add('active');
+      } else {
+        pill.classList.remove('active');
+      }
+    });
+  }
+
+  btnManualAddRule.addEventListener('click', openManualRuleModal);
+  btnCloseModal.addEventListener('click', closeManualRuleModal);
+  btnCancelModal.addEventListener('click', closeManualRuleModal);
+
+  // Đóng modal khi click ra vùng nền mờ bên ngoài
+  manualRuleModal.addEventListener('click', (e) => {
+    if (e.target === manualRuleModal) closeManualRuleModal();
+  });
+
+  // Đóng modal bằng phím Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && manualRuleModal.style.display === 'flex') {
+      closeManualRuleModal();
+    }
+  });
+
+  // Chọn nhanh các mốc timeout qua pill (0ms, 500ms, 1s, 3s)
+  modalTimeoutPills.forEach((pill) => {
+    pill.addEventListener('click', () => {
+      const ms = pill.getAttribute('data-ms');
+      modalRuleTimeout.value = ms;
+      updatePillSelection(ms);
+    });
+  });
+
+  modalRuleTimeout.addEventListener('input', () => {
+    updatePillSelection(modalRuleTimeout.value);
+  });
+
+  // Lưu quy tắc từ modal
+  btnSaveModal.addEventListener('click', async () => {
+    await handleSaveModalRule();
+  });
+
+  // Nhấn Enter trong form modal để lưu ngay
+  [modalRuleName, modalRulePattern, modalRuleTimeout].forEach((input) => {
+    input.addEventListener('keydown', async (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        await handleSaveModalRule();
+      }
+    });
+  });
+
+  async function handleSaveModalRule() {
+    const pattern = modalRulePattern.value.trim();
+    if (!pattern) {
+      alert(t('validationPatternRequired'));
+      modalRulePattern.focus();
+      return;
+    }
+
+    const name = modalRuleName.value.trim() || pattern;
+    const timeoutMs = Math.max(0, parseInt(modalRuleTimeout.value, 10) || 0);
 
     const newGroup = {
-      id: 'rule_' + Date.now(),
+      id: 'rule_' + Date.now() + '_' + Math.random().toString(36).substr(2, 6),
       name: name,
       matches: [pattern],
       excludeMatches: [],
@@ -362,22 +477,23 @@ document.addEventListener('DOMContentLoaded', async () => {
     await StorageService.saveRules(cachedRules);
     updateRulesCountBadge();
     renderRulesList();
-    showToast('Đã thêm quy tắc mới & Đã đồng bộ ☁️');
-  });
+    closeManualRuleModal();
+    showToast(t('toastRuleAdded', [newGroup.name, formatTimeout(timeoutMs)]));
+  }
 
-  // ====================== 4. Cài đặt & Sao lưu ======================
+  // ====================== 5. Cài đặt & Sao lưu ======================
   settingDefaultTimeout.addEventListener('change', async () => {
-    const val = Math.max(0, parseInt(settingDefaultTimeout.value, 10) || 3);
+    const val = Math.max(0, parseInt(settingDefaultTimeout.value, 10) || 500);
     settingDefaultTimeout.value = val;
     cachedSettings.defaultTimeout = val;
     await StorageService.saveSettings(cachedSettings);
-    showToast(`Đã lưu thời gian chờ mặc định: ${val} giây ☁️`);
+    showToast(t('toastTimeoutSaved', [String(val)]));
   });
 
   settingCloseOnBlock.addEventListener('change', async () => {
     cachedSettings.closeCurrentOnBlock = settingCloseOnBlock.checked;
     await StorageService.saveSettings(cachedSettings);
-    showToast('Đã cập nhật cài đặt ☁️');
+    showToast(t('toastSettingsSaved'));
   });
 
   // Xuất file JSON
@@ -385,11 +501,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     const dataStr = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(cachedRules, null, 2));
     const downloadAnchor = document.createElement('a');
     downloadAnchor.setAttribute('href', dataStr);
-    downloadAnchor.setAttribute('download', `tabs-auto-close-rules-${new Date().toISOString().slice(0, 10)}.json`);
+    downloadAnchor.setAttribute('download', `smart-tab-cleaner-rules-${new Date().toISOString().slice(0, 10)}.json`);
     document.body.appendChild(downloadAnchor);
     downloadAnchor.click();
     downloadAnchor.remove();
-    showToast('Đã tải xuống file cấu hình JSON');
+    showToast(t('toastExportSuccess'));
   });
 
   // Nhập file JSON
@@ -410,19 +526,19 @@ document.addEventListener('DOMContentLoaded', async () => {
           await StorageService.saveRules(cachedRules);
           updateRulesCountBadge();
           renderRulesList();
-          showToast('Nhập dữ liệu thành công & Đã đồng bộ ☁️');
+          showToast(t('toastImportSuccess'));
         } else {
-          alert('Định dạng file JSON không hợp lệ (cần có mảng "groups").');
+          alert(t('invalidJson'));
         }
       } catch (err) {
-        alert('Lỗi đọc file: ' + err.message);
+        alert(t('fileReadError') + err.message);
       }
       importFileInput.value = '';
     };
     reader.readAsText(file);
   });
 
-  // ====================== Helper Utils ======================
+  // ====================== Toast Helper ======================
   function showToast(msg) {
     toastNotice.textContent = msg;
     toastNotice.style.display = 'block';
