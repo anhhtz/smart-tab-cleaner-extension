@@ -331,7 +331,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             <button class="btn-sm-action btn-delete-rule" data-id="${group.id}" style="color: var(--danger);">${escapeHtml(t('btnDelete'))}</button>
           </div>
         </div>
-        <div class="rule-pattern" title="Regex pattern">${escapeHtml(group.matches.join(' | '))}</div>
+        <div class="rule-pattern" title="${escapeHtml(t('rulePatternTooltip'))}">${escapeHtml(group.matches.join(' | '))}</div>
         <div class="rule-footer">
           <span>${escapeHtml(t('ruleClosesAfter'))} <strong>${formatTimeout(group.closeTimeout)}</strong></span>
         </div>

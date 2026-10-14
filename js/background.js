@@ -56,7 +56,7 @@ chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
           await chrome.tabs.remove(tabId);
           await StorageService.incrementClosedCount();
         } catch (err) {
-          console.warn(`[Auto-Close] Không thể đóng tab ${tabId} (có thể tab đã tắt thủ công):`, err);
+          console.warn(`[Smart Tab Cleaner] Could not remove tab ${tabId}:`, err);
         } finally {
           activeTimers.delete(tabId);
         }
@@ -64,7 +64,7 @@ chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
 
       activeTimers.set(tabId, timerId);
     } else {
-      // Nếu URL đã đổi sang trang không khớp rule, hủy timer nếu có
+      // Restore icon and clear timer if URL changed away from match
       if (activeTimers.has(tabId)) {
         clearTimeout(activeTimers.get(tabId));
         activeTimers.delete(tabId);
@@ -74,11 +74,11 @@ chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
       }
     }
   } catch (error) {
-    console.error('[Auto-Close Background Error]:', error);
+    console.error('[Smart Tab Cleaner Background Error]:', error);
   }
 });
 
-// Dọn dẹp timer khi tab bị đóng thủ công
+// Clean up timer when tab is closed
 chrome.tabs.onRemoved.addListener((tabId) => {
   if (activeTimers.has(tabId)) {
     clearTimeout(activeTimers.get(tabId));
@@ -86,8 +86,8 @@ chrome.tabs.onRemoved.addListener((tabId) => {
   }
 });
 
-// Khởi tạo & kiểm tra migration khi cài đặt hoặc khởi động extension
+// Initialize on installed
 chrome.runtime.onInstalled.addListener(async () => {
-  console.log('[Tabs Auto Close] Extension đã được khởi chạy với Cloud Sync.');
-  await StorageService.getRules(); // Kích hoạt auto-migrate từ local sang sync
+  console.log('[Smart Tab Cleaner] Service worker initialized with Cloud Sync.');
+  await StorageService.getRules();
 });

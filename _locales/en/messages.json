@@ -111,6 +111,10 @@
     "message": "⏱ Closes after:",
     "description": "Rule card footer prefix"
   },
+  "rulePatternTooltip": {
+    "message": "Regex pattern",
+    "description": "Tooltip for regex pattern badge"
+  },
   "btnDelete": {
     "message": "Delete",
     "description": "Delete button text"
@@ -152,8 +156,12 @@
     "description": "Hint for rule pattern"
   },
   "labelRuleTimeout": {
-    "message": "Timeout Delay:",
+    "message": "Timeout Delay (milliseconds):",
     "description": "Label for timeout input"
+  },
+  "pillInstant": {
+    "message": "0ms (Instant)",
+    "description": "Quick pill for 0ms"
   },
   "btnCancel": {
     "message": "Cancel",
@@ -172,7 +180,7 @@
     "description": "Default timeout setting label"
   },
   "settingDefaultTimeoutDesc": {
-    "message": "Countdown milliseconds before automatically closing matching tabs (e.g. 500ms)",
+    "message": "Countdown milliseconds before automatically closing matching tabs (default: 500ms)",
     "description": "Default timeout setting description"
   },
   "settingCloseOnBlockLabel": {
@@ -259,5 +267,29 @@
   "toastError": {
     "message": "An error occurred: ",
     "description": "Toast for generic error"
+  },
+  "launcherZoom": {
+    "message": "Zoom Meeting Launcher",
+    "description": "Smart pattern name for Zoom"
+  },
+  "launcherTelegram": {
+    "message": "Telegram Join Link",
+    "description": "Smart pattern name for Telegram"
+  },
+  "launcherTeams": {
+    "message": "MS Teams Launcher",
+    "description": "Smart pattern name for Teams"
+  },
+  "launcherWebex": {
+    "message": "Webex Meeting Launcher",
+    "description": "Smart pattern name for Webex"
+  },
+  "defaultRuleName": {
+    "message": "Auto Close Rule",
+    "description": "Default rule name fallback"
+  },
+  "customUrl": {
+    "message": "Custom URL",
+    "description": "Custom URL fallback name"
   }
 }

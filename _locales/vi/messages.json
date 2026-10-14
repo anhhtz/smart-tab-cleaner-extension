@@ -111,6 +111,10 @@
     "message": "⏱ Tự đóng sau:",
     "description": "Tiền tố thời gian đóng"
   },
+  "rulePatternTooltip": {
+    "message": "Cú pháp Regex",
+    "description": "Tooltip cho cú pháp regex"
+  },
   "btnDelete": {
     "message": "Xóa",
     "description": "Nút xóa rule"
@@ -154,6 +158,10 @@
   "labelRuleTimeout": {
     "message": "Thời gian chờ (mili-giây):",
     "description": "Nhãn thời gian chờ"
+  },
+  "pillInstant": {
+    "message": "0ms (Ngay)",
+    "description": "Nút chọn 0ms"
   },
   "btnCancel": {
     "message": "Hủy",
@@ -259,5 +267,29 @@
   "toastError": {
     "message": "Có lỗi xảy ra: ",
     "description": "Toast lỗi chung"
+  },
+  "launcherZoom": {
+    "message": "Trình mở cuộc họp Zoom",
+    "description": "Tên thông minh cho Zoom"
+  },
+  "launcherTelegram": {
+    "message": "Liên kết nhóm Telegram",
+    "description": "Tên thông minh cho Telegram"
+  },
+  "launcherTeams": {
+    "message": "Trình mở Microsoft Teams",
+    "description": "Tên thông minh cho Teams"
+  },
+  "launcherWebex": {
+    "message": "Trình mở cuộc họp Webex",
+    "description": "Tên thông minh cho Webex"
+  },
+  "defaultRuleName": {
+    "message": "Quy tắc tự động đóng",
+    "description": "Tên quy tắc mặc định"
+  },
+  "customUrl": {
+    "message": "Trang web tùy chỉnh",
+    "description": "Tên tùy chỉnh mặc định"
   }
 }

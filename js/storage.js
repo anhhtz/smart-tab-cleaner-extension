@@ -196,9 +196,10 @@ const StorageService = {
       g.matches.includes(patternInfo.pattern) || g.name === patternInfo.name
     );
 
+    const fallbackName = this.getI18nMsg('defaultRuleName', 'Auto Close Rule');
     const newGroup = {
       id: 'rule_' + Date.now() + '_' + Math.random().toString(36).substr(2, 6),
-      name: patternInfo.name || title || 'Auto Close Rule',
+      name: patternInfo.name || title || fallbackName,
       matches: [patternInfo.pattern],
       excludeMatches: [],
       closeTimeout: timeoutMs,
@@ -216,6 +217,17 @@ const StorageService = {
 
     await this.saveRules(rules);
     return newGroup;
+  },
+
+  /**
+   * Helper đọc i18n an toàn
+   */
+  getI18nMsg(key, fallback) {
+    if (typeof chrome !== 'undefined' && chrome.i18n && chrome.i18n.getMessage) {
+      const msg = chrome.i18n.getMessage(key);
+      if (msg) return msg;
+    }
+    return fallback;
   },
 
   /**
@@ -251,25 +263,25 @@ const StorageService = {
       // Danh sách các pattern phổ biến của launcher (Zoom, Teams, Telegram...)
       if (host.includes('zoom.us') && pathname.includes('/j/')) {
         return {
-          name: 'Zoom Meeting Launcher',
+          name: this.getI18nMsg('launcherZoom', 'Zoom Meeting Launcher'),
           pattern: 'zoom\\.us/j/.*'
         };
       }
       if (host.includes('t.me')) {
         return {
-          name: 'Telegram Join Link',
+          name: this.getI18nMsg('launcherTelegram', 'Telegram Join Link'),
           pattern: 't\\.me/.*'
         };
       }
       if (host.includes('teams.microsoft.com') && (pathname.includes('/l/') || pathname.includes('/launcher/'))) {
         return {
-          name: 'MS Teams Launcher',
+          name: this.getI18nMsg('launcherTeams', 'MS Teams Launcher'),
           pattern: 'teams\\.microsoft\\.com/.*/launcher.*'
         };
       }
       if (host.includes('webex.com') && pathname.includes('/m/')) {
         return {
-          name: 'Webex Meeting Launcher',
+          name: this.getI18nMsg('launcherWebex', 'Webex Meeting Launcher'),
           pattern: 'webex\\.com/m/.*'
         };
       }
@@ -285,7 +297,7 @@ const StorageService = {
       // Nếu URL không parse được, escape thô
       const escaped = rawUrl.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
       return {
-        name: 'Custom URL',
+        name: this.getI18nMsg('customUrl', 'Custom URL'),
         pattern: escaped
       };
     }
