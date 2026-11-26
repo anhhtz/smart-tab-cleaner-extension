@@ -1,0 +1,28 @@
+name: Release
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: write
+
+jobs:
+  package:
+    name: Package extension
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Create extension ZIP
+        run: >-
+          zip -r smart-tab-cleaner-extension.zip
+          manifest.json popup.html css js icons _locales assets
+          extracted_original_rules.json
+
+      - name: Upload ZIP to GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: smart-tab-cleaner-extension.zip
+          fail_on_unmatched_files: true
